@@ -1,95 +1,78 @@
-import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        <div className={styles.title_container}>
+          <h1 className={styles.title}>
+            Grove Roots
+            <svg
+              version="1.1"
+              id="_x32_"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              width="120px"
+              height="120px"
+              viewBox="0 0 512 512"
+              xmlSpace="preserve"
+              fill="#51A0A5"
+            >
+              <style type="text/css"></style>
+              <g>
+                <path
+                  className="st0"
+                  d="M214.2,319.991L214.2,319.991L214.2,319.991C197.34,301.585,232.293,180.319,27.075,97.569
+		c-33.75,6.125-71.688,176.672,127.719,228.844c59.609,29.797,50.219,79.469,50.219,107.078h38.344
+		c0,0-15.688-87.578,54.375-119.672c47.672-21.828,179.328-28.828,214.265-225.547C445.387,49.757,208.825,124.835,214.2,319.991z
+		 M165.84,286.804c-4.063,2.813-9.641,1.797-12.453-2.266c-19.516-28.266-73.484-93.484-97.344-117.281
+		c-3.5-3.484-3.5-9.156,0-12.641c3.484-3.5,9.156-3.5,12.641,0c25.344,25.391,78.688,89.859,99.422,119.734
+		C170.918,278.413,169.903,283.991,165.84,286.804z M415.965,141.663c-65.25,41.234-118.578,109.844-142.625,147.109
+		c-2.672,4.141-8.219,5.328-12.359,2.656c-4.141-2.688-5.328-8.219-2.641-12.375c25.141-38.766,79.141-108.766,148.047-152.5
+		c4.172-2.656,9.688-1.406,12.344,2.766C421.372,133.491,420.137,139.007,415.965,141.663z"
+                />
+              </g>
+            </svg>
+          </h1>
+          <h2>
+            Reinterpreting longing, embracing memories, and celebrating the
+            continuity of life
+          </h2>
+        </div>
+        <div className={styles.action_container}>
+          <p>
+            Start sharing memories
+          </p>
+          <div className={styles.action_button_container}>
+          <button>
+            <Link href="/login">
+            Login
+            </Link>
+            </button>
+          <button className={styles.action_button}>Check memorial</button>
+          </div>
+        </div>
+        <div className={styles.title_container}>
+          <hr />
+          <h2>About us</h2>
+          <div>
+          <p>Hey! My name is Leticia.</p>
+          <p>I lost my brother in April 2023 when he was 30 years old. He went to the beach and drowned.</p>
+          <p>We are a family that makes jokes about everything—my brother was probably the funniest one. He always made jokes about death and funerals, saying things like, "You can bury me in the backyard, but good luck digging the hole!" We always tried to make life lighter. So, when he passed away, these things helped me a lot during my grief. Every time I started to feel depressed, I remembered him talking about these things, making jokes, and it always helped me.</p>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+          <p>I started talking more about my own funeral, the things I want when my time comes, and people always feel uncomfortable. They say, "Stop talking about this!" But hey, that day will come for all of us. Talking about it won’t make it any less painful, but we can make it lighter—helping people remember us with good feelings. His death is still incredibly painful, and it probably always will be. But life keeps happening, and we have two choices: we can let ourselves drown in grief (which our loved ones wouldn’t want, right?), or we can keep living—with a giant wound in our hearts.</p>
+
+          <p>I was in pain, feeling like life was unfair, angry… and then my mom said something tough to me on the day my brother was being buried (in the cemetery, not the backyard). She said: "We are not better than anyone to be spared from this." It was a harsh, painful truth—but a real one.</p>
+
+          <p>That’s why I chose Grove Roots. The life cycle can be unfair and painful, but at the same time, from death, we can have life. We can learn, grow, and love. When a tree dies, it nourishes the soil so that other plants can grow. While we lose our loved ones, new lives are being born. One day, we celebrate the gift of life; the next, we feel the pain of its cycle.</p>
+
+          <p>If you're going through grief today, you are not alone. Sending you a virtual hug, and I can assure you—life deserves to be lived. And I bet your loved one agrees with me.</p>
+          </div>
+          {/* https://br.pinterest.com/pin/222857881535703073/ */}
         </div>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <footer className={styles.footer}></footer>
     </div>
   );
 }
