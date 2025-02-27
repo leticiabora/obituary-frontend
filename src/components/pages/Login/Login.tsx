@@ -3,8 +3,10 @@
 import { FormEvent } from 'react';
 import styles from './styles.module.css';
 import { getLogin } from '@/services/login';
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
+  const router = useRouter();
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -14,9 +16,9 @@ const Login = () => {
       const email = formData.get('email') as string;
       const password = formData.get('password') as string;
 
-      const loggedUser = await getLogin({ email, password });
+      await getLogin({ email, password });
 
-      return loggedUser;
+      router.push('/memory/create');
 
     } catch (error) {
       console.log(error);
