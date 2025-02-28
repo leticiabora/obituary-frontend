@@ -6,21 +6,29 @@ interface Endpoint {
   token?: string;
 }
 
-interface SignUp {
+interface Signup {
   name: string;
   email: string;
   password: string;
 }
 
+interface SignUpResponse {
+  message: string;
+  user: {
+    email: string;
+    name: string;
+  }
+}
+
 export const getLogin = async (data: Endpoint) => {
-  const result = await api.post<unknown, Endpoint>('/auth/login', {...data });
+  const result = await api.post<unknown, Endpoint>('/auth/login', data);
 
   return result;
 }
 
-export const newAccount = async (data: SignUp) => {
-  const result = await api.post<unknown, Endpoint>('/auth/signup', data);
-  console.log('RESULT', result);
+export const newAccount = async (data: Signup) => {
+  const result = await api.post<unknown, SignUpResponse>('/auth/signup', data);
+  console.log(result);
 
   return result;
 }

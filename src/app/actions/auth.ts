@@ -3,9 +3,11 @@
 import { getLogin, newAccount } from '@/services/login';
 import { createSession } from '../lib/session';
 import { redirect } from 'next/navigation';
-import { SignupFormSchema, FormState } from '@/app/lib/definitions'
+import { SignupFormSchema, SignupSchemaErrorType } from '@/app/lib/definitions';
+import { AxiosError } from 'axios';
+import { ApiError } from '@/types/api';
 
-export async function loginUser(formData: FormData): Promise<void>  {
+export async function loginUser(formData: FormData): Promise<void> {
   try {
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
@@ -15,9 +17,8 @@ export async function loginUser(formData: FormData): Promise<void>  {
     if (!loggedUser.token) {
       throw new Error('Missing token!');
     }
-    
-    await createSession(loggedUser.token);
 
+    await createSession(loggedUser.token);
   } catch (error) {
     throw error;
   }
@@ -25,33 +26,40 @@ export async function loginUser(formData: FormData): Promise<void>  {
   redirect('/');
 }
 
-  export async function createAccount(state: FormState, formData: FormData) {
-    try {
-      const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        password: formData.get('password'),
-      }
-      const validatedFields = SignupFormSchema.safeParse({
-        ...data,
-        confirmPassword: formData.get('confirmPassword'),
-      })
-  
-      if (!validatedFields.success) {
-        return {
-          errors: validatedFields.error.flatten().fieldErrors,
-        }
-      }
-  
-      const newData = await newAccount(data);
+type State = {
+  errors?: SignupSchemaErrorType;
+};
 
-      return newData;
-    } catch (error: unknown) {
+
+export async function createAccount(state: State, formData: FormData) {
+  try {
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      password: formData.get('password'),
+    };
+
+    const validatedFields = SignupFormSchema.safeParse({
+      ...data,
+      confirmPassword: formData.get('confirmPassword'),
+    });
+
+    if (!validatedFields.success) {
       return {
-        errors: {
-          custom: error.response?.data?.message || 'Something went wrong. Please, try again!'
-        }
+        errors: validatedFields.error.flatten().fieldErrors,
       };
     }
-    
+
+    const { name, email, password } = validatedFields.data;
+    const newData = await newAccount({ name, email, password });
+
+    return newData;
+  } catch (error) {
+    const axiosError = error as AxiosError<ApiError>;
+    return {
+      message: 
+          axiosError.response?.data?.message ||
+          'Something went wrong. Please, try again!',
+    };
   }
+}
