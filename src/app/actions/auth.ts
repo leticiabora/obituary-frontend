@@ -3,6 +3,7 @@
 import { getLogin } from '@/services/login';
 import { createSession } from '../lib/session';
 import { redirect } from 'next/navigation';
+import { SignupFormSchema, FormState } from '@/app/lib/definitions'
 
 export async function loginUser(formData: FormData): Promise<void>  {
   try {
@@ -23,3 +24,20 @@ export async function loginUser(formData: FormData): Promise<void>  {
 
   redirect('/');
 }
+
+  export async function createAccount(state: FormState, formData: FormData) {
+    const validatedFields = SignupFormSchema.safeParse({
+      name: formData.get('name'),
+      email: formData.get('email'),
+      password: formData.get('password'),
+      confirmPassword: formData.get('confirmPassword'),
+    })
+
+    if (!validatedFields.success) {
+      return {
+        errors: validatedFields.error.flatten().fieldErrors,
+      }
+    }
+   
+    
+  }

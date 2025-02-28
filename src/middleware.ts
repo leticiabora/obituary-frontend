@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { decrypt } from './app/lib/session';
 
-const loginRoutes = ['/login', '/signup']
+const loginRoutes = ['/auth/login', '/auth/signup']
 const publicRoutes = [...loginRoutes, '/'];
 
 export default async function middleware(req: NextRequest) {
