@@ -21,12 +21,12 @@ export type SignupSchemaType = z.infer<typeof SignupFormSchema>;
 // export type SignupSchemaErrorType = z.inferFlattenedErrors<typeof SignupFormSchema>;
  
 export type SignupSchemaErrorType = {
-  errors: {
+  errors?: {
     [key: string]: string[] | undefined;
     email?: string[];
     password?: string[];
     name?: string[];
     confirmPassword?: string[];
   }
-  message?: string[];
+  message?: string;
 }

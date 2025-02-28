@@ -1,3 +1,4 @@
+import { SignupSchemaErrorType } from '@/app/lib/definitions';
 import api from './api';
 
 interface Endpoint {
@@ -27,7 +28,7 @@ export const getLogin = async (data: Endpoint) => {
 }
 
 export const newAccount = async (data: Signup) => {
-  const result = await api.post<unknown, SignUpResponse>('/auth/signup', data);
+  const result = await api.post<unknown, SignUpResponse | SignupSchemaErrorType>('/auth/signup', data);
   console.log(result);
 
   return result;

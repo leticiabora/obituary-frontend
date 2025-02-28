@@ -7,7 +7,7 @@ import { SignupFormSchema, SignupSchemaErrorType } from '@/app/lib/definitions';
 import { AxiosError } from 'axios';
 import { ApiError } from '@/types/api';
 
-export async function loginUser(formData: FormData): Promise<void> {
+export async function loginUser(formData: FormData): Promise<void | AxiosError<ApiError>> {
   try {
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
@@ -20,18 +20,17 @@ export async function loginUser(formData: FormData): Promise<void> {
 
     await createSession(loggedUser.token);
   } catch (error) {
-    throw error;
+    const axiosError = error as AxiosError<ApiError>;
+    return axiosError;
   }
 
   redirect('/');
 }
 
-type State = {
-  errors?: SignupSchemaErrorType;
-};
-
-
-export async function createAccount(state: State, formData: FormData) {
+export async function createAccount(
+  state: SignupSchemaErrorType | null,
+  formData: FormData
+): Promise<SignupSchemaErrorType> {
   try {
     const data = {
       name: formData.get('name'),
@@ -57,6 +56,7 @@ export async function createAccount(state: State, formData: FormData) {
   } catch (error) {
     const axiosError = error as AxiosError<ApiError>;
     return {
+      errors: {},
       message: 
           axiosError.response?.data?.message ||
           'Something went wrong. Please, try again!',

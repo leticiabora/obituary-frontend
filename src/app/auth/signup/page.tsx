@@ -6,8 +6,12 @@ import { createAccount } from '@/app/actions/auth';
 import { useActionState } from 'react';
 import { SignupSchemaErrorType } from '@/app/lib/definitions';
 
+const initialState: SignupSchemaErrorType = {
+  errors: {},
+};
+
 const Signup = () => {
-  const [state, action, pending] = useActionState<SignupSchemaErrorType>(createAccount, null)
+  const [state, action, pending] = useActionState<SignupSchemaErrorType, FormData>(createAccount, initialState)
 
   return (
     <div>
