@@ -1,4 +1,5 @@
 import 'server-only';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { decrypt } from './app/lib/session';
@@ -11,26 +12,30 @@ export default async function middleware(req: NextRequest) {
   const isPublicRoute = publicRoutes.includes(path);
   const isLoginRoute = loginRoutes.includes(path);
 
-  const cookie = (await cookies()).get('token')?.value;
+  try {
+    const cookie = (await cookies()).get('token')?.value;
 
-  if (!cookie) {
-    if (!isPublicRoute) {
+    if (!cookie) {
+      if (!isPublicRoute) {
+        return NextResponse.redirect(new URL('/login', req.nextUrl));
+      }
+      return NextResponse.next();
+    }
+  
+    const session = await decrypt(cookie);
+  
+    if (!session?.id && !isPublicRoute) {
       return NextResponse.redirect(new URL('/login', req.nextUrl));
     }
+  
+    if (session?.id && isLoginRoute) {
+      return NextResponse.redirect(new URL('/', req.nextUrl));
+    }
+  
     return NextResponse.next();
+  } catch (error) {
+    console.log(error);
   }
-
-  const session = await decrypt(cookie);
-
-  if (!session?.id && !isPublicRoute) {
-    return NextResponse.redirect(new URL('/login', req.nextUrl));
-  }
-
-  if (session?.id && isLoginRoute) {
-    return NextResponse.redirect(new URL('/', req.nextUrl));
-  }
-
-  return NextResponse.next();
 }
 
 export const config = {
