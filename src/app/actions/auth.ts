@@ -26,23 +26,32 @@ export async function loginUser(formData: FormData): Promise<void>  {
 }
 
   export async function createAccount(state: FormState, formData: FormData) {
-    const validatedFields = SignupFormSchema.safeParse({
-      name: formData.get('name'),
-      email: formData.get('email'),
-      password: formData.get('password'),
-      confirmPassword: formData.get('confirmPassword'),
-    })
-
-    if (!validatedFields.success) {
-      return {
-        errors: validatedFields.error.flatten().fieldErrors,
+    try {
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        password: formData.get('password'),
       }
+      const validatedFields = SignupFormSchema.safeParse({
+        ...data,
+        confirmPassword: formData.get('confirmPassword'),
+      })
+  
+      if (!validatedFields.success) {
+        return {
+          errors: validatedFields.error.flatten().fieldErrors,
+        }
+      }
+  
+      const newData = await newAccount(data);
+
+      return newData;
+    } catch (error: unknown) {
+      return {
+        errors: {
+          custom: error.response?.data?.message || 'Something went wrong. Please, try again!'
+        }
+      };
     }
-   
-    await newAccount({
-      name: formData.get('name'),
-      email: formData.get('email'),
-      password: formData.get('password'),
-    });
     
   }

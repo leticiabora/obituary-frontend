@@ -19,7 +19,8 @@ export const getLogin = async (data: Endpoint) => {
 }
 
 export const newAccount = async (data: SignUp) => {
-  const result = await api.post<unknown, Endpoint>('/auth/signup', {...data });
-
+  const result = await api.post<unknown, Endpoint>('/auth/signup', data);
   console.log('RESULT', result);
+
+  return result;
 }

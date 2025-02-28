@@ -13,8 +13,9 @@
       display: flex;
       flex-direction: column;
     }
-    & p {
-      color: red;
-    }
   }
+}
+
+.error {
+  color: red;
 }
