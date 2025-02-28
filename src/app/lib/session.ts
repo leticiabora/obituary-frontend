@@ -6,6 +6,13 @@ import { cookies } from 'next/headers';
 const secretKey = process.env.JWT_SECRET_KEY;
 const encodedKey = new TextEncoder().encode(secretKey);
 
+interface SessionPayload {
+  id: number;
+  email: string;
+  iat: number;
+  exp: number;
+}
+
 export const encrypt = async (payload: JWTPayload) => {
   return new SignJWT(payload)
   .setProtectedHeader({ alg: 'HS256' })
@@ -14,7 +21,7 @@ export const encrypt = async (payload: JWTPayload) => {
   .sign(encodedKey)
 }
 
-export const decrypt = async (session: string | undefined = '') => {
+export const decrypt = async (session: string | undefined = ''): Promise<SessionPayload | unknown >  => {
   try {
     const { payload } = await jwtVerify(session, encodedKey, {
       algorithms: ['HS256']
@@ -27,11 +34,8 @@ export const decrypt = async (session: string | undefined = '') => {
 }
 
 export async function createSession(token: string) {
-  // console.log('token', token)
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-  // const session = await encrypt({ userId, expiresAt });
   const cookieStore = await cookies();
-  // console.log('cookieStore', cookieStore);
  
   cookieStore.set('token', token, {
     httpOnly: true,

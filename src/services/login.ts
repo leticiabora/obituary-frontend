@@ -3,6 +3,7 @@ import api from './api';
 interface Endpoint {
   email: string;
   password: string;
+  token?: string;
 }
 
 export const getLogin = async (data: Endpoint) => {
