@@ -15,14 +15,18 @@ export const SignupFormSchema = z.object({
   message: 'Passwords don\'t match',
   path: ['confirmPassword'],
 });
+
+export type SignupSchemaType = z.infer<typeof SignupFormSchema>;
+
+// export type SignupSchemaErrorType = z.inferFlattenedErrors<typeof SignupFormSchema>;
  
-export type FormState =
-  | {
-      errors?: {
-        name?: string[]
-        email?: string[]
-        password?: string[]
-      }
-      message?: string
-    }
-  | undefined
+export type SignupSchemaErrorType = {
+  errors: {
+    [key: string]: string[] | undefined;
+    email?: string[];
+    password?: string[];
+    name?: string[];
+    confirmPassword?: string[];
+  }
+  message?: string[];
+}

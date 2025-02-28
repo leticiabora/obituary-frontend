@@ -4,16 +4,15 @@ import Form from 'next/form';
 import styles from '../styles.module.css';
 import { createAccount } from '@/app/actions/auth';
 import { useActionState } from 'react';
+import { SignupSchemaErrorType } from '@/app/lib/definitions';
 
 const Signup = () => {
-  const [state, action, pending] = useActionState(createAccount, undefined)
-
-  console.log('State', state);
+  const [state, action, pending] = useActionState<SignupSchemaErrorType>(createAccount, null)
 
   return (
     <div>
       <Form className={styles.container} action={action}>
-        {state?.errors?.custom && <p className={styles.error}>{state?.errors?.custom}</p>}
+        {state?.message && <p className={styles.error}>{state?.message}</p>}
       <div>
         <label htmlFor="name">
           Name
