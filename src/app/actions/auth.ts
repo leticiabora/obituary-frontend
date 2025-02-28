@@ -1,6 +1,6 @@
 'use server';
 
-import { getLogin } from '@/services/login';
+import { getLogin, newAccount } from '@/services/login';
 import { createSession } from '../lib/session';
 import { redirect } from 'next/navigation';
 import { SignupFormSchema, FormState } from '@/app/lib/definitions'
@@ -39,5 +39,10 @@ export async function loginUser(formData: FormData): Promise<void>  {
       }
     }
    
+    await newAccount({
+      name: formData.get('name'),
+      email: formData.get('email'),
+      password: formData.get('password'),
+    });
     
   }
