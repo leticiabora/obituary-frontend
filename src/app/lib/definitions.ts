@@ -17,8 +17,6 @@ export const SignupFormSchema = z.object({
 });
 
 export type SignupSchemaType = z.infer<typeof SignupFormSchema>;
-
-// export type SignupSchemaErrorType = z.inferFlattenedErrors<typeof SignupFormSchema>;
  
 export type SignupSchemaErrorType = {
   errors?: {
