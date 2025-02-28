@@ -46,7 +46,7 @@ export default function Home() {
           </p>
           <div className={styles.action_button_container}>
           <button>
-            <Link href="/login">
+            <Link href="/auth/login">
             Login
             </Link>
             </button>

@@ -1,5 +1,5 @@
 import { loginUser } from '@/app/actions/auth';
-import styles from './styles.module.css';
+import styles from '../styles.module.css';
 import Form from 'next/form';
 
 const Login = () => {
