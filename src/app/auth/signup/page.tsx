@@ -4,14 +4,14 @@ import Form from 'next/form';
 import styles from '../styles.module.css';
 import { createAccount } from '@/app/actions/auth';
 import { useActionState } from 'react';
-import { SignupSchemaErrorType } from '@/app/lib/definitions';
+import { AuthSchemaErrorType } from '@/app/lib/definitions';
 
-const initialState: SignupSchemaErrorType = {
+const initialState: AuthSchemaErrorType = {
   errors: {},
 };
 
 const Signup = () => {
-  const [state, action, pending] = useActionState<SignupSchemaErrorType, FormData>(createAccount, initialState)
+  const [state, action, pending] = useActionState<AuthSchemaErrorType, FormData>(createAccount, initialState)
 
   return (
     <div>

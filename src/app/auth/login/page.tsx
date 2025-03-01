@@ -1,20 +1,40 @@
+'use client';
+
 import { loginUser } from '@/app/actions/auth';
 import styles from '../styles.module.css';
 import Form from 'next/form';
+import { useActionState } from 'react';
+import { AuthSchemaErrorType } from '@/app/lib/definitions';
+
+const initialState: AuthSchemaErrorType = {
+  errors: {},
+};
 
 const Login = () => {
+  const [state, action, pending] = useActionState<
+    AuthSchemaErrorType,
+    FormData
+  >(loginUser, initialState);
+
   return (
-    <div>
-      <Form className={styles.container} action={loginUser}>
-        <label>
-          Email
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Password
-          <input type="password" name="password" required />
-        </label>
-        <button type="submit">Login</button>
+    <div className={styles.container}>
+      {state?.message && <p className={styles.error}>{state?.message}</p>}
+      <Form className={styles.container} action={action}>
+        <div>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+        </div>
+        <div>
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+        </div>
+        <button disabled={pending} type="submit">
+          Login
+        </button>
       </Form>
     </div>
   );
