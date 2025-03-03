@@ -23,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${quicksand.variable}`}>
-        {children}
+        <div className='container'>
+          {children}
+        </div>
       </body>
     </html>
   );
