@@ -1,0 +1,9 @@
+nav {
+  display: flex;
+  ul {
+    display: flex;
+    width: 100%;
+    list-style: none;
+    justify-content: space-between;
+  }
+}
