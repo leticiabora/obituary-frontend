@@ -1,11 +1,25 @@
 'use server';
 
 import { getLogin, newAccount } from '@/services/login';
-import { createSession } from '../lib/session';
+import { createSession, decrypt } from '../lib/session';
 import { redirect } from 'next/navigation';
 import { SignupFormSchema, AuthSchemaErrorType, LoginFormSchema } from '@/app/lib/definitions';
 import { AxiosError } from 'axios';
 import { ApiError } from '@/types/api';
+import { cookies } from 'next/headers';
+import { JWTPayload } from 'jose';
+
+export async function getSession(): Promise<JWTPayload | null> {
+  const session = (await cookies()).get('token')?.value;
+
+  if (!session) {
+    return null;
+  }
+
+  const decryptSession = await decrypt(session);
+
+  return decryptSession;
+}
 
 export async function loginUser(
   state: AuthSchemaErrorType | null,
