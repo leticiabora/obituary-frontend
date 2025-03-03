@@ -41,6 +41,7 @@ body {
 
 .container {
   width: 100%;
+  padding: 40px 80px;
 }
 
 a {
