@@ -20,12 +20,12 @@ const Memory = () => {
     const result = await createMemory(state, formData);
 
     if ('post' in result) {
-      router.push('/');
+      router.push(`/posts/${result.post.id}`);
     }
 
     return result;
   }
-  
+
   const [state, action, pending] = useActionState<
   MemorySchemaErrorType,
     FormData

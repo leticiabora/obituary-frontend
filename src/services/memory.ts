@@ -7,3 +7,9 @@ export const postMemory = async (data: FormData) => {
 
   return result;
 }
+
+export const getMemories = async () => {
+  const result = await api.get<unknown, MemoryData | MemorySchemaErrorType>('/posts');
+
+  return result;
+}
