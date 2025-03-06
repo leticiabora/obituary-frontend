@@ -21,13 +21,13 @@ const Login = () => {
       {state?.message && <p className={styles.error}>{state?.message}</p>}
       <Form className={styles.container} action={action}>
         <div>
-          <label>
+          <label htmlFor="email">
             Email
             <input type="email" name="email" required />
           </label>
         </div>
         <div>
-          <label>
+          <label htmlFor="password">
             Password
             <input type="password" name="password" required />
           </label>
