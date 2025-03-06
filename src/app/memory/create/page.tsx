@@ -19,12 +19,13 @@ const Memory = () => {
   const addNewMemory = async (state: MemorySchemaErrorType, formData: FormData): Promise<MemoryData | MemorySchemaErrorType> => {
     const result = await createMemory(state, formData);
 
-    if (result?.post) {
+    if ('post' in result) {
       router.push('/');
     }
 
     return result;
   }
+  
   const [state, action, pending] = useActionState<
   MemorySchemaErrorType,
     FormData
