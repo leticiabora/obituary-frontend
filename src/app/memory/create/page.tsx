@@ -5,6 +5,8 @@ import { useActionState } from 'react';
 import { MemorySchemaErrorType } from '@/app/lib/definitions';
 import { createMemory } from '../actions/actions';
 import styles from './styles.module.css';
+import { useRouter } from 'next/navigation';
+import { MemoryData } from '@/types/memory';
 
 const initialState: MemorySchemaErrorType = {
   errors: {},
@@ -12,10 +14,21 @@ const initialState: MemorySchemaErrorType = {
 };
 
 const Memory = () => {
+  const router = useRouter();
+
+  const addNewMemory = async (state: MemorySchemaErrorType, formData: FormData): Promise<MemoryData | MemorySchemaErrorType> => {
+    const result = await createMemory(state, formData);
+
+    if (result?.post) {
+      router.push('/');
+    }
+
+    return result;
+  }
   const [state, action, pending] = useActionState<
   MemorySchemaErrorType,
     FormData
-  >(createMemory, initialState);
+  >(addNewMemory, initialState);
 
   return (
     <div className={styles.container}>
