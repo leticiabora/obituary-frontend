@@ -11,7 +11,8 @@ const quicksand = Quicksand({
 
 export const metadata: Metadata = {
   // title: "Roots Forest",
-  title: 'Grove Roots',
+  title: 'About my fellow',
+  // title: 'Grove Roots',
   description: 'Reinterpreting longing, embracing memories, and celebrating the continuity of life.',
 };
 
