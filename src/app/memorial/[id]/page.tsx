@@ -1,4 +1,6 @@
+import Comment from '@/components/pages/Post/Comment';
 import { getMemory } from '@/services/memory';
+import Form from 'next/form';
 import Image from 'next/image';
 
 const MemoryPage = async ({ params }: {
@@ -19,6 +21,13 @@ const MemoryPage = async ({ params }: {
     <p>{memory.description}</p>
     <p>{memory.author.name}</p>
     <p>Created at: {new Date(memory.createdAt).toString()}</p>
+
+    <hr></hr>
+
+    <div>
+      <h2>Memories with my fellow</h2>
+        <Comment postId={id} />
+    </div>
   </div>
 }
 
