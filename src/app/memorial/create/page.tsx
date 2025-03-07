@@ -4,7 +4,7 @@ import Form from 'next/form';
 import { useActionState } from 'react';
 import { MemorySchemaErrorType } from '@/app/lib/definitions';
 import { createMemory } from '../actions/actions';
-import styles from './styles.module.css';
+import styles from '@/app/page.module.css';
 import { useRouter } from 'next/navigation';
 import { MemoryData } from '@/types/memory';
 
@@ -19,10 +19,7 @@ const Memory = () => {
   const addNewMemory = async (state: MemorySchemaErrorType, formData: FormData): Promise<MemoryData | MemorySchemaErrorType> => {
     const result = await createMemory(state, formData);
 
-    console.log('Result', result);
-
     if ('post' in result) {
-      // router.push(`/posts/${result.post.id}`);
       router.push('/memorial');
     }
 
@@ -35,9 +32,9 @@ const Memory = () => {
   >(addNewMemory, initialState);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.form_container}>
       {state?.message && <p>{state?.message}</p>}
-      <Form action={action}>
+      <Form className={styles.form_container} action={action}>
         <div>
           <label htmlFor="title">
             Title
@@ -60,7 +57,7 @@ const Memory = () => {
           {state?.errors?.description && <p className={styles.error}>{state.errors.description}</p>}
         </div>
         <button disabled={pending} type="submit">
-          Login
+          Create a memory
         </button>
       </Form>
     </div>

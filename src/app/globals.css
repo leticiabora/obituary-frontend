@@ -61,6 +61,24 @@ input {
   color: black;
 }
 
+input[type="file"] {
+  height: 100%;
+  display: flex;
+  cursor: pointer;
+}
+
+input#file-upload-button {
+  background-color: red;
+}
+
+textarea {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 5px;
+  color: black;
+}
+
 button {
   font-size: 15px;
   padding: 15px;
