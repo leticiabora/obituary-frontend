@@ -1,4 +1,4 @@
-import { MemoryData } from '@/types/memory';
+import { MemoriesData, MemoryData } from '@/types/memory';
 import api from './api';
 import { MemorySchemaErrorType } from '@/app/lib/definitions';
 
@@ -9,7 +9,7 @@ export const postMemory = async (data: FormData) => {
 }
 
 export const getMemories = async () => {
-  const result = await api.get<unknown, MemoryData | MemorySchemaErrorType>('/posts');
+  const result = await api.get<unknown, MemoriesData>('/posts');
 
   return result;
 }

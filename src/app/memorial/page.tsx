@@ -3,7 +3,6 @@ import Image from 'next/image';
 
 const Memories = async () => {
   const memories = await getMemories();
-  console.log(memories)
 
   if (!memories?.posts?.length) {
     return <div>No memories yet!</div>
