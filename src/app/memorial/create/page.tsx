@@ -19,8 +19,11 @@ const Memory = () => {
   const addNewMemory = async (state: MemorySchemaErrorType, formData: FormData): Promise<MemoryData | MemorySchemaErrorType> => {
     const result = await createMemory(state, formData);
 
+    console.log('Result', result);
+
     if ('post' in result) {
-      router.push(`/posts/${result.post.id}`);
+      // router.push(`/posts/${result.post.id}`);
+      router.push('/memorial');
     }
 
     return result;
