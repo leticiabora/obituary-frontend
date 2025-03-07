@@ -5,7 +5,7 @@ const AboutPage = () => {
     <div className={styles.title_container}>
     <h2>About us</h2>
     <div>
-    <p>Hey! I'm Leticia!</p>
+    <p>Hey!</p>
     <p>I lost my brother on 28th of April, 2023 when he was 30 years old. He went to the beach and drowned.</p>
     <p>Yes, that day I felt that I lost all my strenght, I lost the ground, I lost my soul.</p>
     <p>Exactly 1 year before (28th April, 2023) we were having one of the best days in our lifes: the Kiss concert.</p>
