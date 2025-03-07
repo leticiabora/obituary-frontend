@@ -33,6 +33,7 @@ export const createMemory = async (
     const axiosError = error as AxiosError<ApiError>;
     const errorMessage = axiosError?.response?.data;
 
+    console.log('error', error)
     return {
       errors: {},
       message:

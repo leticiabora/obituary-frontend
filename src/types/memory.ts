@@ -4,7 +4,10 @@ export interface MemoryData {
     id: number;
     title: string;
     description: string;
-    userId: number;
+    user: {
+      id: number;
+      name: string;
+    };
     image: string
   }
 }
