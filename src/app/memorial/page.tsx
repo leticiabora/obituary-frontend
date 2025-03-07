@@ -18,7 +18,7 @@ const Memories = async () => {
         <p>{memory.title}</p>
         <Link href={`/memorial/${memory.id}`}>Check Memory</Link>
         {/* <p>{memory.description}</p> */}
-        <p>Created By: {memory?.user?.name}</p>
+        <p>Created By: {memory?.author?.name}</p>
         </div>
     )})}
   </div>

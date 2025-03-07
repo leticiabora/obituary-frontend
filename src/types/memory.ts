@@ -2,11 +2,12 @@ interface Post {
   id: number;
   title: string;
   description: string;
-  user: {
+  author: {
     id: number;
     name: string;
   };
-  image: string
+  image: string;
+  createdAt: string;
 }
 
 export interface MemoryData {
