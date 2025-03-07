@@ -8,7 +8,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.title_container}>
           <h1 className={styles.title}>
-            Grove Roots
+            About my fellow
             <PlantIcon width={120} height={120}/>
           </h1>
           <h2>

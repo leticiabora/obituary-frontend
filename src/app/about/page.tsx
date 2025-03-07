@@ -32,7 +32,7 @@ const AboutPage = () => {
 
     <p>The most harsh, painful truth — but she was right.</p>
 
-    <p>That’s why I started to think in create Grove Roots. To be able to create memorials for people (and pets!) that we love, without judgment and to be able to share our stories with our loved ones and our desires when our time comes.</p>
+    <p>That’s why I started to think in create About My Fellow. To be able to create memorials for people (and pets!) that we love, without judgment and to be able to share our stories with our loved ones and our desires when our time comes.</p>
 
     <p>Life cycle can be unfair and painful, you can curse, share your emotions, but at the same time, remember that from death, we can have life. We can learn, grow, and love. When a tree dies, it nourishes the soil so that other plants can grow. While we lose our loved ones, new lives are being born. One day, we celebrate the gift of life; the next, we feel the pain of its cycle.</p>
 
