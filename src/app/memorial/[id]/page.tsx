@@ -1,6 +1,5 @@
 import Comment from '@/components/pages/Post/Comment';
 import { getMemory } from '@/services/memory';
-import Form from 'next/form';
 import Image from 'next/image';
 
 const MemoryPage = async ({ params }: {
@@ -10,6 +9,8 @@ const MemoryPage = async ({ params }: {
 
   const post = await getMemory(id);
   const memory = post?.post;
+
+  console.log('typeof ', typeof id);
 
   if (!memory) {
     return <div>Ops! Memory not available!</div>

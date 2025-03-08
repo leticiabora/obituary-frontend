@@ -1,11 +1,10 @@
 'use server';
 
-import { getSession } from '@/app/actions/auth';
 import { CreateMemorySchema, MemorySchemaErrorType } from '@/app/lib/definitions';
 import { postComment } from '@/services/comment';
 import { postMemory } from '@/services/memory';
 import { ApiError } from '@/types/api';
-import { MemoryData } from '@/types/memory';
+import { CommentData, CommentForm, MemoryData } from '@/types/memory';
 import { AxiosError } from 'axios';
 
 export const createMemory = async (
@@ -35,7 +34,6 @@ export const createMemory = async (
     const axiosError = error as AxiosError<ApiError>;
     const errorMessage = axiosError?.response?.data;
 
-    console.log('error', error)
     return {
       errors: {},
       message:
@@ -46,16 +44,23 @@ export const createMemory = async (
   }
 };
 
-export const createComment = async (data) => {
-
-  const commentData = {
+export const createComment = async (data: CommentData) => {
+  const commentData: CommentForm = {
     postId: data.postId,
     description: data.formData.get('description'),
   }
 
-  const comment = await postComment(commentData);
+  const validatedFields = CreateMemorySchema.safeParse({
+    description: commentData.description
+  });
 
-  console.log('Comment', comment);
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+    };
+  }
+
+  const comment: CommentForm = await postComment(commentData);
 
   return comment;
 }

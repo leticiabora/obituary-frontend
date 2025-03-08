@@ -2,15 +2,20 @@
 
 import Form from 'next/form';
 import { useActionState } from 'react';
-import { AuthSchemaErrorType } from '@/app/lib/definitions';
+import { CommentSchemaError } from '@/app/lib/definitions';
 import { createComment } from '@/app/memorial/actions/actions';
+import { CommentResponse } from '@/types/memory';
 
-const initialState: AuthSchemaErrorType = {
+type CommentProps = {
+  postId: string;
+};
+
+const initialState: CommentSchemaError = {
   errors: {},
 };
 
-const Comment = ({ postId }) => {
-  const addComment = async (state, formData) => {
+const Comment = ({ postId }: CommentProps) => { 
+  const addComment = async (state: CommentSchemaError, formData: FormData): Promise<CommentSchemaError | CommentResponse> => {
     const data = {
       state,
       formData,
@@ -21,7 +26,7 @@ const Comment = ({ postId }) => {
     return comment;
   }
   const [state, action, pending] = useActionState<
-    AuthSchemaErrorType,
+    CommentSchemaError,
     FormData
   >(addComment, initialState);
 
