@@ -76,7 +76,11 @@ export const CreateMemorySchema = z.object({
     .string()
     .min(5, { message: 'Description must be at least 5 characters long.' })
     .trim(),
-    image: z.any().refine((file) => file && file.size >= 1, { message: 'Image is required.' })
+  image: z
+    .any()
+    .refine((file) => file && file.size >= 1, {
+      message: 'Image is required.',
+    }),
 });
 
 export type CreateMemory = z.infer<typeof CreateMemorySchema>;
@@ -87,6 +91,20 @@ export type MemorySchemaErrorType = {
     title?: string[];
     description?: string[];
     image?: string[];
+  };
+  message?: string;
+};
+
+export const CreateCommentSchema = z.object({
+  description: z
+    .string()
+    .min(5, { message: 'Description must be at least 5 characters long.' })
+    .trim(),
+});
+
+export type CommentSchemaError = {
+  errors?: {
+    description?: string[];
   };
   message?: string;
 };
