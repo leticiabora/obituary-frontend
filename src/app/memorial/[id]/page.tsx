@@ -10,8 +10,6 @@ const MemoryPage = async ({ params }: {
   const post = await getMemory(id);
   const memory = post?.post;
 
-  console.log('typeof ', typeof id);
-
   if (!memory) {
     return <div>Ops! Memory not available!</div>
   }

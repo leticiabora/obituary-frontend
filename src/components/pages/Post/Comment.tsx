@@ -33,7 +33,7 @@ const Comment = ({ postId }: CommentProps) => {
   return (
     <div >
       {state?.message && <p>{state?.message}</p>}
-      <Form  action={action}>
+      <Form action={action}>
         <div>
           <label>
             Description
@@ -41,7 +41,7 @@ const Comment = ({ postId }: CommentProps) => {
           </label>
         </div>
         <button disabled={pending} type="submit">
-          Login
+          Comment
         </button>
       </Form>
     </div>
