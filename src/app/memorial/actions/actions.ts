@@ -1,6 +1,6 @@
 'use server';
 
-import { CreateMemorySchema, MemorySchemaErrorType } from '@/app/lib/definitions';
+import { CreateCommentSchema, CreateMemorySchema, MemorySchemaErrorType } from '@/app/lib/definitions';
 import { postComment } from '@/services/comment';
 import { postMemory } from '@/services/memory';
 import { ApiError } from '@/types/api';
@@ -45,15 +45,18 @@ export const createMemory = async (
 };
 
 export const createComment = async (data: CommentData) => {
+  console.log(data);
   try {
     const commentData = {
       postId: data.postId,
       description: data.formData.get('description'),
     }
   
-    const validatedFields = CreateMemorySchema.safeParse({
+    const validatedFields = CreateCommentSchema.safeParse({
       description: commentData.description
     });
+
+    console.log('validatedFields', validatedFields.error)
   
     if (!validatedFields.success) {
       return {
@@ -62,11 +65,13 @@ export const createComment = async (data: CommentData) => {
     }
   
     const comment = await postComment(commentData);
+    console.log('COMMENT', comment)
   
     return comment;
   } catch (error) {
     const axiosError = error as AxiosError<ApiError>;
     const errorMessage = axiosError?.response?.data;
+    console.log('error', error)
 
     return {
       errors: {},

@@ -3,8 +3,6 @@
 import Form from 'next/form';
 import { useActionState } from 'react';
 import { CommentSchemaError } from '@/app/lib/definitions';
-import { createComment } from '@/app/memorial/actions/actions';
-import { CommentResponse } from '@/types/memory';
 
 import styles from './styles.module.css';
 
@@ -16,17 +14,7 @@ const initialState: CommentSchemaError = {
   errors: {},
 };
 
-const Comment = ({ postId }: CommentProps) => { 
-  const addComment = async (state: CommentSchemaError, formData: FormData): Promise<CommentSchemaError | CommentResponse> => {
-    const data = {
-      state,
-      formData,
-      postId
-    }
-    const comment = await createComment(data);
-
-    return comment;
-  }
+const Comment = ({ postId, addComment }: CommentProps) => { 
   const [state, action, pending] = useActionState<
     CommentSchemaError,
     FormData
@@ -39,7 +27,7 @@ const Comment = ({ postId }: CommentProps) => {
         <div>
           <label htmlFor='description'>
             Comment about fellow
-            <textarea rows={10} name="description" required />
+            <textarea id="description" rows={10} name="description" required />
           </label>
         </div>
         <button disabled={pending} type="submit">
