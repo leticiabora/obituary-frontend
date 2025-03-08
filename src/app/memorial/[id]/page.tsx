@@ -1,6 +1,9 @@
-import Comment from '@/components/pages/Post/Comment';
+import CommentForm from '@/components/pages/Post/CommentForm';
+import CommentList from '@/components/pages/Post/CommentList';
 import { getMemory } from '@/services/memory';
 import Image from 'next/image';
+
+import styles from './styles.module.css';
 
 const MemoryPage = async ({ params }: {
   params: Promise<{ id: string }>
@@ -23,9 +26,10 @@ const MemoryPage = async ({ params }: {
 
     <hr></hr>
 
-    <div>
+    <div className={styles.container}>
       <h2>Memories with my fellow</h2>
-        <Comment postId={id} />
+        <CommentForm postId={id} />
+        <CommentList comments={memory.comments}/>
     </div>
   </div>
 }

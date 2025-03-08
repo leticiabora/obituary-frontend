@@ -6,6 +6,8 @@ import { CommentSchemaError } from '@/app/lib/definitions';
 import { createComment } from '@/app/memorial/actions/actions';
 import { CommentResponse } from '@/types/memory';
 
+import styles from './styles.module.css';
+
 type CommentProps = {
   postId: string;
 };
@@ -31,17 +33,17 @@ const Comment = ({ postId }: CommentProps) => {
   >(addComment, initialState);
 
   return (
-    <div >
+    <div className={styles.container}>
       {state?.message && <p>{state?.message}</p>}
-      <Form action={action}>
+      <Form className={styles.form} action={action}>
         <div>
-          <label>
-            Description
+          <label htmlFor='description'>
+            Comment about fellow
             <textarea rows={10} name="description" required />
           </label>
         </div>
         <button disabled={pending} type="submit">
-          Comment
+          Add Comment
         </button>
       </Form>
     </div>
