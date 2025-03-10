@@ -1,17 +1,23 @@
 import { CommentSchemaError } from '@/app/lib/definitions';
 
+export interface Comment {
+  id: number;
+  createdAt: string;
+  updatedAt: string;
+  description: string;
+  postId: number;
+  author: {
+    id: number;
+    name: string;
+  };
+}
+
 export interface CommentResponse {
   message?: string;
-    id: number;
-    createdAt: string;
-    description: string;
-    postId: string;
-    author: {
-      id: number;
-      name: string;
-    },
+  comment: Comment;
+
 }
-interface Post {
+export interface Post {
   id: number;
   title: string;
   description: string;
@@ -21,12 +27,13 @@ interface Post {
   };
   image: string;
   createdAt: string;
-  comments: CommentResponse[]
+  updatedAt: string;
+  comments: Comment[];
 }
 
 export interface MemoryData {
   message: string;
-  post: Post
+  post: Post;
 }
 
 export interface MemoriesData {
@@ -34,12 +41,16 @@ export interface MemoriesData {
 }
 
 export interface CommentData {
-  state: CommentSchemaError,
-  formData: FormData,
-  postId: string,
+  state: CommentSchemaError | null;
+  formData?: FormData;
+  postId: number;
 }
 
 export interface CommentForm {
-  postId: string;
-  description: FormDataEntryValue | null;
+  postId: number;
+  description: string;
+}
+
+export interface Comments {
+  comments: Comment[];
 }
