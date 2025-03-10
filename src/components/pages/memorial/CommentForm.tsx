@@ -6,15 +6,15 @@ import { CommentSchemaError } from '@/app/lib/definitions';
 
 import styles from './styles.module.css';
 
-type CommentProps = {
-  postId: string;
-};
+interface CreateComment {
+  addComment: (state: CommentSchemaError, formData: FormData) => Promise<CommentSchemaError>;
+}
 
 const initialState: CommentSchemaError = {
   errors: {},
 };
 
-const Comment = ({ postId, addComment }: CommentProps) => { 
+const CommentForm = ({ addComment }: CreateComment) => { 
   const [state, action, pending] = useActionState<
     CommentSchemaError,
     FormData
@@ -27,7 +27,8 @@ const Comment = ({ postId, addComment }: CommentProps) => {
         <div>
           <label htmlFor='description'>
             Comment about fellow
-            <textarea id="description" rows={10} name="description" required />
+            <p>{state?.description && state?.description}</p>
+            <textarea id="description" rows={10} name="description" />
           </label>
         </div>
         <button disabled={pending} type="submit">
@@ -37,4 +38,4 @@ const Comment = ({ postId, addComment }: CommentProps) => {
     </div>
   );
 };
-export default Comment;
+export default CommentForm;

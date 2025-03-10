@@ -1,22 +1,11 @@
-import CommentForm from '@/components/pages/memorial/CommentForm';
-import CommentList from '@/components/pages/memorial/CommentList';
 import { getMemory } from '@/services/memory';
 import Image from 'next/image';
 
-import styles from './styles.module.css';
-import { createComment } from '../actions/actions';
-import { CommentSchemaError } from '@/app/lib/definitions';
 import Memorial from '@/components/pages/memorial/Memorial';
-// import { getSession } from '@/app/actions/auth';
 
 const MemoryPage = async ({ params }: {
   params: Promise<{ id: string }>
 }) => {
-  // const session = await getSession();
-
-  // const currentUser = session?.id; 
-
-  // console.log('session', session)
   const { id } = await params;
 
   const post = await getMemory(id);

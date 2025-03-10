@@ -1,12 +1,14 @@
 'use server';
 
-import { CreateCommentSchema, CreateMemorySchema, MemorySchemaErrorType } from '@/app/lib/definitions';
+import { CreateMemorySchema, MemorySchemaErrorType } from '@/app/lib/definitions';
 import { postComment } from '@/services/comment';
 import { postMemory } from '@/services/memory';
 import { ApiError } from '@/types/api';
-import { CommentData, MemoryData } from '@/types/memory';
+import { CommentForm, CommentResponse, MemoryData } from '@/types/memory';
 import { AxiosError } from 'axios';
 
+
+ 
 export const createMemory = async (
   state: MemorySchemaErrorType | null,
   formData: FormData
@@ -44,41 +46,11 @@ export const createMemory = async (
   }
 };
 
-export const createComment = async (data: CommentData) => {
-  console.log(data);
-  try {
-    const commentData = {
-      postId: data.postId,
-      description: data.formData.get('description'),
-    }
-  
-    const validatedFields = CreateCommentSchema.safeParse({
-      description: commentData.description
-    });
+export const createComment = async (data: CommentForm): Promise<CommentResponse> => {
 
-    console.log('validatedFields', validatedFields.error)
-  
-    if (!validatedFields.success) {
-      return {
-        errors: validatedFields.error.flatten().fieldErrors,
-      };
-    }
-  
-    const comment = await postComment(commentData);
-    console.log('COMMENT', comment)
-  
-    return comment;
-  } catch (error) {
-    const axiosError = error as AxiosError<ApiError>;
-    const errorMessage = axiosError?.response?.data;
-    console.log('error', error)
+  const comment = await postComment(data);
 
-    return {
-      errors: {},
-      message:
-        errorMessage?.error ||
-        errorMessage?.message ||
-        'Something went wrong. Please, try again!',
-    };
-  }
-}
+  console.log('COMMENT', comment)
+  
+  return comment;
+};
