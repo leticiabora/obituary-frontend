@@ -1,7 +1,7 @@
 import { getMemory } from '@/services/memory';
 import Image from 'next/image';
 
-import Memorial from '@/components/pages/memorial/Memorial';
+import Memory from '@/components/pages/memorial/Memory';
 
 const MemoryPage = async ({ params }: {
   params: Promise<{ id: string }>
@@ -24,7 +24,7 @@ const MemoryPage = async ({ params }: {
 
     <hr></hr>
 
-  <Memorial memory={memory} />
+  <Memory memory={memory} />
   </div>
 }
 
