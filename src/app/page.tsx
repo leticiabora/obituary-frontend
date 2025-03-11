@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from './page.module.css';
 import { PlantIcon } from '@/assets/icons';
+import Steps from '@/components/pages/home/Steps/Steps';
 
 export default function Home() {
   return (
@@ -17,16 +18,21 @@ export default function Home() {
           </h2>
         </div>
         <div className={styles.action_container}>
-          <p>
-            Start sharing memories
-          </p>
-          <div className={styles.action_button_container}>
-          <button>
-            <Link href="/auth/login">
-            Login
-            </Link>
-            </button>
-          <button className={styles.action_button}>Check memorial</button>
+          <div className={styles.actions}>
+            <p>
+            Share the memories of your loved ones in a space of tribute and connection. Join us to honor their lives and keep their memories alive.
+            </p>
+            <div className={styles.action_button_container}>
+            <button>
+              <Link href="/auth/login">
+              Login
+              </Link>
+              </button>
+            <button className={styles.action_button}>Check memorial</button>
+            </div>
+          </div>
+          <div className={styles.steps}>
+          <Steps />
           </div>
         </div>
       </main>

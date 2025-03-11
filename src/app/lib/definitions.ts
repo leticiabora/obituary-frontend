@@ -103,7 +103,7 @@ export const CreateCommentSchema = z.object({
 });
 
 export type CommentSchemaError = {
-  description?: string[];
+  description?: string;
   errors?: {
     [key: string]: string[] | undefined;
     description?: string[];
