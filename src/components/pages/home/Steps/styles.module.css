@@ -32,7 +32,7 @@
   gap: 5px;
   padding: 10px;
   border-radius: 50%;
-  background-color: #D2DCCC;
+  background-color: var(--green-light);
   border: 2px solid white;
 }
 
@@ -47,12 +47,12 @@
   gap: 5px;
   padding: 10px;
   border-radius: 50%;
-  background-color: #D2DCCC;
+  background-color: var(--green-light);
   border: 2px solid white;
 }
 
 .center {
-  background-color: #D2DCCC;
+  background-color: var(--green-light);
   box-shadow: 5px 5px 5px rgba(177, 177, 177, 0.3);
   width: 150px;
   height: 150px;
@@ -82,7 +82,7 @@
   height: 160px;
   border-radius: 50%;
   text-align: center;
-  color: #40473c;
+  color: var(--green-dark);
   display: flex;
   flex-direction: column;
   justify-content: center;
