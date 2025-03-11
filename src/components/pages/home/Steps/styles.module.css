@@ -19,6 +19,10 @@
   position: relative;
 }
 
+.circle_mobile {
+  display: none;
+}
+
 .step {
   position: absolute;
   display: flex;
@@ -91,5 +95,37 @@
   }
   & > span {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .circle {
+    display: none;
+  }
+  .step_container {
+    display: flex;
+    width: 100%;
+    padding: 30px;
+    position: relative;
+    background-color: var(--green);
+    border-radius: 30px;
+    border: 2px dotted grey;
+  }
+
+  .circle_mobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    & .step {
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+      position: relative;
+    }
+    & .icon {
+      position: relative;
+    }
   }
 }
