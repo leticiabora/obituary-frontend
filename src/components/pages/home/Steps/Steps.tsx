@@ -1,49 +1,53 @@
 import { LeafIcon, TreeIcon } from '@/assets/icons';
 import styles from './styles.module.css';
 
+const data = [
+  {
+    title: 'Plant a memory',
+    description: 'Honor your fellow by creating a lasting tribute',
+  },
+  {
+    title: 'Nurture a Memory',
+    description: 'Keep memories alive by engaging and sharing your thoughts',
+  },
+  {
+    title: 'Preserve Memories',
+    description: 'Spread their legacy by sharing cherished moments',
+  },
+];
+
 const Steps = () => {
   return (
-<div className={styles.step_container}>
-  <div className={styles.circle}>
-    <div className={styles.step}>
-      {/* <p>Create a Memory</p> */}
-      <div className={styles.icon}>
-       <p>Plant a Memory</p>
-        <span>Honor your fellow by creating a lasting tribute</span>
-        {/* <SeedIcon width={40} height={40} /> */}
+    <div className={styles.step_container}>
+      <div className={styles.circle}>
+        {data.map((item) => (
+          <div key={item.title} className={styles.step}>
+            <div className={styles.icon}>
+              <p>{item.title}</p>
+              <span>{item.description}</span>
+            </div>
+          </div>
+        ))}
+        <div className={styles.center}>
+          <LeafIcon width={80} height={80} color="grey" />
+        </div>
+        <div className={styles.bottom}>
+          <div className={styles.icon}>
+            <TreeIcon width={120} height={120} />
+          </div>
+        </div>
+      </div>
+      <div className={styles.circle_mobile}>
+        {data.map((item) => (
+          <div key={item.title} className={styles.step}>
+            <div className={styles.icon}>
+              <p>{item.title}</p>
+              <span>{item.description}</span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
-    <div className={styles.step}>
-      {/* <p>Comment and Share</p> */}
-      <div className={styles.icon}>
-      <p>Nurture a Memory</p>
-      <span>Keep memories alive by engaging and sharing your thoughts</span>
-      {/* <PlantIcon width={30} height={30}/> */}
-      </div>
-    </div>
-    <div className={styles.step}>
-      {/* <p>Make your tree grow</p> */}
-      <div className={styles.icon}>
-        <p>Preserve Memories</p>
-        <span>Spread their legacy by sharing cherished moments</span>
-      {/* <TreeIcon width={20} height={20} /> */}
-      </div>
-    </div>
-    <div className={styles.center}>
-      {/* <p>CENTER</p> */}
-      {/* <div className={styles.icon}> */}
-      <LeafIcon width={80} height={80} color="grey" />
-      {/* </div> */}
-    </div>
-    <div className={styles.bottom}>
-      {/* <p>BOTTOM</p> */}
-      <div className={styles.icon}>
-      <TreeIcon width={120} height={120} />
-      </div>
-    </div>
-  </div>
-</div>
-
   );
 };
 
