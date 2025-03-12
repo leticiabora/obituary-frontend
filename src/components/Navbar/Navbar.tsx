@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import './navbar.css';
+import styles from './navbar.module.css';
 import { LogoutIcon, UserIcon } from '@/assets/icons';
 import { JWTPayload } from 'jose';
 import Image from 'next/image';
@@ -10,22 +10,24 @@ type NavbarProps = {
 
 const Navbar = ({ session }: NavbarProps) => {
   return (
-    <nav>
+    <nav className={styles.navbar}>
       <ul>
         <li>
           <Link href="/">
             <Image src="/logo-transparent.png" width={80} height={80} alt="About my fellow logo" />
           </Link>
         </li>
-        <li>
-          <Link href="/about">About</Link>
-        </li>
-        <li>
-          <Link href="/memorial">Memorial</Link>
-        </li>
-        <li>
-          <Link href="/memorial/create">Create a Memory</Link>
-        </li>
+        <div className={styles.links}>
+          <li>
+            <Link href="/about">About</Link>
+          </li>
+          <li>
+            <Link href="/memorial">Memorial</Link>
+          </li>
+          <li>
+            <Link href="/memorial/create">Create a Memory</Link>
+          </li>
+        </div>
         <li>
           {session ? (
             <Link href="/login">
