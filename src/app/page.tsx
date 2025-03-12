@@ -6,13 +6,17 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <div className={styles.action_container}>
           <div className={styles.title_container}>
             <h1 className={styles.title}>About my fellow</h1>
-            <h2>
-              Reinterpreting longing, embracing memories, and celebrating the
-              continuity of life
-            </h2>
+            <h2>A thoughtful space for remembrance and celebration</h2>
+            <h3>
+              <span className={styles.subtitle}>
+                Reinterpreting longing, embracing memories, and celebrating the
+                continuity of life
+              </span>
+            </h3>
+        </div>
+        <div className={styles.action_container}>
             <div className={styles.actions}>
               <p>
                 Share the memories of your loved ones — both people and pets —
@@ -34,11 +38,10 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-          </div>
           <div className={styles.steps}>
             <Steps />
           </div>
-        </div>
+          </div>
       </main>
     </div>
   );
