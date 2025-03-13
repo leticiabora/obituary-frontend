@@ -1,6 +1,14 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { API_URL } from '../config/envs';
 import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
+
+export const logout = async () => {
+  const cookieStore = await cookies();
+  cookieStore.set('token', '', { expires: new Date(0), path: '/' });
+  
+  return NextResponse.json({ message: 'Logout successfully!' }, { status: 200 });
+}
 
 const getToken = async () => {
   const cookieStore = await cookies();
