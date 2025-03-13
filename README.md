@@ -16,6 +16,7 @@ On April 28, 2022, I was with one of my brothers at a Kiss concert, living a dre
 On April 20, 2023, we were at a Helloween concert, and one of the songs they played was Best Time, which says:
 
 >I will have the best time of my life
+>
 >Yesterday is history, tomorrow is a mystery.
 
 I listened to that song with my heart filled with gratitude.
@@ -39,6 +40,7 @@ My main area is Frontend, so it's basically my first backend project. I had an i
 
 I'm basically using typescript, next/react, node, express, mySQL and sequelize. It's a work in progress, so I still have a lot of things to do:
 
+- Deploy
 - Feature flag
 - Tests (backend and frontend)
 - Improve UI
