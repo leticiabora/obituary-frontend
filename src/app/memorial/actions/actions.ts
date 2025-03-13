@@ -49,8 +49,6 @@ export const createMemory = async (
 export const createComment = async (data: CommentForm): Promise<CommentResponse> => {
 
   const comment = await postComment(data);
-
-  console.log('COMMENT', comment)
   
   return comment;
 };

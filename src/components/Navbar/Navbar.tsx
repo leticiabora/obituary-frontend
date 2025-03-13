@@ -1,14 +1,30 @@
+'use client';
+
 import Link from 'next/link';
 import styles from './navbar.module.css';
 import { LogoutIcon, UserIcon } from '@/assets/icons';
 import { JWTPayload } from 'jose';
 import Image from 'next/image';
+import { logout } from '@/app/actions/auth';
+import { useRouter } from 'next/navigation';
 
 type NavbarProps = {
   session: JWTPayload | null;
 };
 
 const Navbar = ({ session }: NavbarProps) => {
+  const router = useRouter();
+
+  const logoutUser = () => {
+    try {
+      logout();
+
+      router.push('/');
+    } catch (error){
+      return error;
+    }
+  }
+   
   return (
     <nav className={styles.navbar}>
       <ul className={styles.list}>
@@ -30,9 +46,9 @@ const Navbar = ({ session }: NavbarProps) => {
         </div>
         <li>
           {session ? (
-            <Link href="/login">
+            <button onClick={logoutUser}>
               <LogoutIcon width={20} height={20} />
-            </Link>
+            </button>
           ) : (
             <Link href="/login">
               <UserIcon width={20} height={20} />

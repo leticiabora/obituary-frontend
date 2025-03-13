@@ -21,6 +21,11 @@ export async function getSession(): Promise<JWTPayload | null> {
   return decryptSession;
 }
 
+export async function logout() {
+  const cookieStore = await cookies();
+  cookieStore.set('token', '', { expires: new Date(0), path: '/' });
+}
+
 export async function loginUser(
   state: AuthSchemaErrorType | null,
   formData: FormData
