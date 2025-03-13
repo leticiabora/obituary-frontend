@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  ul {
+  .list {
     display: flex;
     width: 100%;
     align-items: center;
@@ -17,7 +17,7 @@
   align-items: center;
   gap: 60px;
   justify-content: center;
-  li {
+  .list_item {
     border-bottom: 1px solid transparent;
     &:hover {
       border-bottom: 1px solid var(--green);

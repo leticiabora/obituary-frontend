@@ -1,7 +1,7 @@
 import { getMemories } from '@/services/memory';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './styles.module.css';
+import MemoryAvatar from '@/components/Avatar/MemoryAvatar';
 
 const Memories = async () => {
   const memories = await getMemories();
@@ -14,7 +14,7 @@ const Memories = async () => {
     {memories.posts.map((memory) => {
       return (
       <div className={styles.memory} key={memory.id}>
-        {memory?.image && memory.image.length && <Image className={styles.image} src={memory.image} width={200} height={200} alt={memory.title} />}
+        <MemoryAvatar memory={memory} />
         <h3>{memory.title}</h3>
         <Link className={styles.link} href={`/memorial/${memory.id}`}>Check Memory</Link>
         </div>

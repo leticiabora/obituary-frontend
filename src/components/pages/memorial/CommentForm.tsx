@@ -26,7 +26,6 @@ const CommentForm = ({ addComment }: CreateComment) => {
       <Form className={styles.form} action={action}>
         <div>
           <label htmlFor='description'>
-            Comment about fellow
             <p>{state?.description && state?.description}</p>
             <textarea id="description" rows={10} name="description" />
           </label>
