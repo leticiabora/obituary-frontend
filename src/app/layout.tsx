@@ -10,13 +10,9 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  // title: "Roots Forest",
   title: 'About my fellow',
-  // title: 'Grove Roots',
   description: 'Reinterpreting longing, embracing memories, and celebrating the continuity of life.',
 };
-
-// Resignificando a saudade, abraçando as lembranças e celebrando a continuidade da vida.
 
 export default async function RootLayout({
   children,
@@ -28,6 +24,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${quicksand.variable}`}>
+        <div className="demo">Demo - WIP</div>
         <div className='container'>
           <Navbar session={session} />
           {children}

@@ -35,6 +35,19 @@ body {
   justify-content: center;
 }
 
+.demo {
+  position: absolute;
+  top: 10;
+  left: -40;
+  transform: rotate(-30deg);
+  background-color: red;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+}
+
 input::file-selector-button {
   border: 2px solid var(--green);
   color: var(--green);
