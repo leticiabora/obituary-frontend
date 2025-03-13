@@ -35,6 +35,17 @@ body {
   justify-content: center;
 }
 
+input::file-selector-button {
+  border: 2px solid var(--green);
+  color: var(--green);
+  background-color: var(--foreground);
+  border-radius: 4px;
+  font-size: 15px;
+  &:hover {
+    filter: brightness(90%);
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

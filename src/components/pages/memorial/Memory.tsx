@@ -14,13 +14,13 @@ interface Memory {
 
 const Memorial = ({ memory }: Memory) => {
   const [comments, setComments] = useState<Comment[]>(memory.comments);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   const addComment = async (
     state: CommentSchemaError,
     formData: FormData
   ): Promise<CommentSchemaError | Comment> => {
-    setLoading(true);
+    // setLoading(true);
     
     try {
       const description = formData.get('description') as string;
@@ -48,21 +48,13 @@ const Memorial = ({ memory }: Memory) => {
       return comment;
     } catch (error) {
       return error as CommentSchemaError;
-    } finally {
-      setLoading(false);
     }
   };
-
-  // if (loading) return <p>Loading...</p>
 
   return (
     <div className={styles.container}>
       <h2>Memories with my fellow</h2>
-      {loading ? (
-        <p>Submitting your memory...</p>
-      ) : (
         <CommentForm addComment={addComment} />
-      )}
       {comments.map((comment) => {
         return (
           <div key={comment.id} className={styles.comment}>

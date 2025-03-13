@@ -1,31 +1,39 @@
 import { getMemory } from '@/services/memory';
-import Image from 'next/image';
 
 import Memory from '@/components/pages/memorial/Memory';
+import { Suspense } from 'react';
+import MemoryAvatar from '@/components/Avatar/MemoryAvatar';
+import dayjs from 'dayjs';
 
-const MemoryPage = async ({ params }: {
-  params: Promise<{ id: string }>
-}) => {
+import styles from './styles.module.css';
+
+dayjs().format() 
+
+const MemoryPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
 
   const post = await getMemory(id);
   const memory = post?.post;
 
   if (!memory) {
-    return <div>Ops! Memory not available!</div>
+    return <div>Ops! Memory not available!</div>;
   }
 
-  return <div>
-    <h1>{memory.title}</h1>
-    <Image src={memory.image} height={200} width={200} alt={memory.title}/>
-    <p>{memory.description}</p>
-    <p>{memory.author.name}</p>
-    <p>Created at: {new Date(memory.createdAt).toString()}</p>
+  return (
+    <div className={styles.container}>
+      <h1>{memory.title}</h1>
+      <MemoryAvatar memory={memory} />
+      <p><span className={styles.subitem}>Created by:</span> {memory.author.name}</p>
+      <p><span className={styles.subitem}>Created at:</span> {dayjs(new Date(memory.createdAt).toString()).format('MMM 12, YYYY')}</p>
+      <p>{memory.description}</p>
 
-    <hr></hr>
+      <hr></hr>
 
-  <Memory memory={memory} />
-  </div>
-}
+      <Suspense fallback={<p>Loading!!!</p>}>
+        <Memory memory={memory} />
+      </Suspense>
+    </div>
+  );
+};
 
 export default MemoryPage;

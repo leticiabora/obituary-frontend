@@ -11,20 +11,20 @@ type NavbarProps = {
 const Navbar = ({ session }: NavbarProps) => {
   return (
     <nav className={styles.navbar}>
-      <ul>
-        <li>
+      <ul className={styles.list}>
+        <li className={styles.list_item}>
           <Link href="/">
             <Image src="/logo-transparent.png" width={80} height={80} alt="About my fellow logo" />
           </Link>
         </li>
         <div className={styles.links}>
-          <li>
+          <li className={styles.list_item}>
             <Link href="/about">About</Link>
           </li>
-          <li>
+          <li className={styles.list_item}>
             <Link href="/memorial">Memorial</Link>
           </li>
-          <li>
+          <li className={styles.list_item}>
             <Link href="/memorial/create">Create a Memory</Link>
           </li>
         </div>
