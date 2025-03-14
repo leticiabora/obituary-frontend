@@ -9,7 +9,7 @@ const publicRoutes = [...loginRoutes, '/', '/memorial', '/memorial/:id'];
 
 export default async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
-  const isPublicRoute = publicRoutes.includes(path);
+  const isPublicRoute = publicRoutes.includes(path) || /^\/memorial\/[^/]+$/.test(path);
   const isLoginRoute = loginRoutes.includes(path);
 
   try {
