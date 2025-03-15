@@ -27,7 +27,7 @@ const CommentForm = ({ addComment }: CreateComment) => {
         <div>
           <label htmlFor='description'>
             <p>{state?.description && state?.description}</p>
-            <textarea id="description" rows={10} name="description" />
+            <textarea rows={10} name="description" />
           </label>
         </div>
         <button disabled={pending} type="submit">

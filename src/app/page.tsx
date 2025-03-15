@@ -1,23 +1,23 @@
 import Link from 'next/link';
-import styles from './page.module.css';
 import Steps from '@/components/pages/home/Steps/Steps';
+import { ActionContainer, Actions, ButtonContainer, Container, Main, Subtitle, Title, TitleContainer } from './MainPage.styles';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-          <div className={styles.title_container}>
-            <h1 className={styles.title}>About my fellow</h1>
+    <Container>
+      <Main>
+          <TitleContainer>
+            <Title>About my fellow</Title>
             <h2>A thoughtful space for remembrance and celebration</h2>
             <h3>
-              <span className={styles.subtitle}>
+              <Subtitle>
                 Reinterpreting longing, embracing memories, and celebrating the
                 continuity of life
-              </span>
+              </Subtitle>
             </h3>
-        </div>
-        <div className={styles.action_container}>
-            <div className={styles.actions}>
+        </TitleContainer>
+        <ActionContainer>
+            <Actions>
               <p>
                 Share the memories of your loved ones — both people and pets —
                 in a space of tribute and connection.
@@ -27,22 +27,22 @@ export default function Home() {
                 memory planted becomes a part of a growing legacy, nurturing
                 love, remembrance, and togetherness across generations.
               </p>
-              <div className={styles.action_button_container}>
+              <ButtonContainer>
                 <Link href="/auth/login">
                   <button>Login</button>
                 </Link>
                 <Link href="/memorial">
-                  <button className={styles.action_button}>
+                  <button>
                     Check memorial
                   </button>
                 </Link>
-              </div>
-            </div>
-          <div className={styles.steps}>
+              </ButtonContainer>
+            </Actions>
+          <Actions>
             <Steps />
-          </div>
-          </div>
-      </main>
-    </div>
+          </Actions>
+          </ActionContainer>
+      </Main>
+    </Container>
   );
 }

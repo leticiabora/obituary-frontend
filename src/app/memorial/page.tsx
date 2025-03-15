@@ -1,7 +1,6 @@
 import { getMemories } from '@/services/memory';
-import Link from 'next/link';
-import styles from './styles.module.css';
 import MemoryAvatar from '@/components/Avatar/MemoryAvatar';
+import { Container, Detail, Memory, Title } from './Memorial.styles';
 
 const Memories = async () => {
   const memories = await getMemories();
@@ -10,17 +9,17 @@ const Memories = async () => {
     return <div>No memories yet!</div>
   }
 
-  return <div className={styles.container}>
+  return <Container>
     {memories.posts.map((memory) => {
       return (
-      <div className={styles.memory} key={memory.id}>
+      <Memory key={memory.id}>
         <MemoryAvatar memory={memory}>
-          <h3>{memory.title}</h3>
-          <Link className={styles.link} href={`/memorial/${memory.id}`}>Check Memory</Link>
+          <Title>{memory.title}</Title>
+          <Detail>Check Memory</Detail>
         </MemoryAvatar>
-        </div>
+        </Memory>
     )})}
-  </div>
+  </Container>
 }
 
 export default Memories;

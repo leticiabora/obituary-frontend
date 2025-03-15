@@ -28,6 +28,11 @@ export const Memory = styled.div`
 `;
 
 export const LinkContainer = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   font-weight: 800;
   color: var(--green);
   border: 1px solid transparent;
