@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Steps from '@/components/pages/home/Steps/Steps';
 import { ActionContainer, Actions, ButtonContainer, Container, Main, Subtitle, Title, TitleContainer } from './MainPage.styles';
+import Button from '@/components/Button/Button';
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
               <ButtonContainer>
                 <Link href="/auth/login">
                   <button>Login</button>
+                  <Button variant="link">Test</Button>
                 </Link>
                 <Link href="/memorial">
                   <button>

@@ -1,40 +1,13 @@
 'use client';
 import styled from 'styled-components';
 
-// .page {
-//   --gray-rgb: 0, 0, 0;
-//   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-//   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-//   --button-primary-hover: #383838;
-//   --button-secondary-hover: #f2f2f2;
-
-//   display: grid;
-//   grid-template-rows: 20px 1fr 20px;
-//   align-items: start;
-//   justify-items: center;
-//   height: 100%;
-//   font-family: var(--font-quicksand-sans);
-// }
-
-// @media (prefers-color-scheme: dark) {
-//   .page {
-//     --gray-rgb: 255, 255, 255;
-//     --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-//     --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-//     --button-primary-hover: #ccc;
-//     --button-secondary-hover: #1a1a1a;
-//   }
-// }
-
 export const Container = styled.div`
   display: grid;
   grid-template-rows: 20px 1fr 20px;
   align-items: start;
   justify-items: center;
   height: 100%;
-  font-family: font-quicksand-sans;
+  font-family: var(--font-quicksand);
 `;
 
 export const Main = styled.main`
