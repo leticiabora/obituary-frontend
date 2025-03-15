@@ -3,6 +3,7 @@ import { Quicksand } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar/Navbar';
 import { getSession } from './actions/auth';
+import StyledComponentsRegistry from './lib/registry';
 
 const quicksand = Quicksand({
   variable: '--font-quicksand',
@@ -24,11 +25,13 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${quicksand.variable}`}>
+      <StyledComponentsRegistry>
         <div className="demo">Demo - WIP</div>
         <div className='container'>
           <Navbar session={session} />
           {children}
         </div>
+      </StyledComponentsRegistry>
       </body>
     </html>
   );

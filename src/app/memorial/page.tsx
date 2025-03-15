@@ -14,9 +14,10 @@ const Memories = async () => {
     {memories.posts.map((memory) => {
       return (
       <div className={styles.memory} key={memory.id}>
-        <MemoryAvatar memory={memory} />
-        <h3>{memory.title}</h3>
-        <Link className={styles.link} href={`/memorial/${memory.id}`}>Check Memory</Link>
+        <MemoryAvatar memory={memory}>
+          <h3>{memory.title}</h3>
+          <Link className={styles.link} href={`/memorial/${memory.id}`}>Check Memory</Link>
+        </MemoryAvatar>
         </div>
     )})}
   </div>

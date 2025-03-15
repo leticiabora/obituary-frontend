@@ -1,24 +1,22 @@
 import { Post } from '@/types/memory';
-import styles from './styles.module.css';
-import Image from 'next/image';
+import { Container, ImageContainer, LinkContainer } from './Avatar.styles';
+import { ReactNode } from 'react';
 
 interface Memory {
   memory: Post;
+  children: ReactNode;
 }
 
-const MemoryAvatar = ({ memory }: Memory) => {
+const MemoryAvatar = ({ memory, children }: Memory) => {
   return (
-    <div className={styles.memory} key={memory.id}>
-      {memory?.image && memory.image.length && (
-        <Image
-          className={styles.image}
-          src={memory.image}
-          width={200}
-          height={200}
-          alt={memory.title}
-        />
-      )}
-    </div>
+    <LinkContainer href={`/memory/${memory.id}`}>
+      <Container key={memory.id}>
+        {memory?.image && memory.image.length && (
+          <ImageContainer src={memory.image} width={200} height={200} alt={memory.title} />
+        )}
+      </Container>
+      {children}
+    </LinkContainer>
   );
 };
 
