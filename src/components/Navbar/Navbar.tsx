@@ -7,6 +7,7 @@ import { JWTPayload } from 'jose';
 import Image from 'next/image';
 import { logout } from '@/app/actions/auth';
 import { useRouter } from 'next/navigation';
+import { Button } from '../Button';
 
 type NavbarProps = {
   session: JWTPayload | null;
@@ -46,9 +47,9 @@ const Navbar = ({ session }: NavbarProps) => {
         </div>
         <li>
           {session ? (
-            <button onClick={logoutUser}>
+            <Button variant='none' onClick={logoutUser}>
               <LogoutIcon width={20} height={20} />
-            </button>
+            </Button>
           ) : (
             <Link href="/login">
               <UserIcon width={20} height={20} />
