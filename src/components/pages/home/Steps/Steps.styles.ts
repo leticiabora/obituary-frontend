@@ -1,29 +1,59 @@
-.step_container {
+'use client';
+
+import styled from 'styled-components';
+
+export const Container = styled.div`
   display: flex;
   width: 100%;
   padding-top: 50px;
   position: relative;
-}
+  @media (max-width: 800px) {
+    display: flex;
+    width: 100%;
+    padding: 30px;
+    background-color: var(--green);
+    border-radius: 30px;
+    border: 2px dotted grey;
+  }
+`;
 
-.circle {
+export const Circle = styled.div`
   width: 500px;
-  height: 400px;
+  height: 500px;
   border-radius: 100%;
   border: 20px solid white;
-  box-shadow: 5px 5px 10px rgba(177, 177, 177, 0.3),
-  inset 5px 5px 10px rgba(177, 177, 177, 0.3);
+  box-shadow: 5px 5px 10px rgba(177, 177, 177, 0.3), inset 5px 5px 10px rgba(177, 177, 177, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-}
+  @media (max-width: 800px) {
+    display: none;
+  }
+`;
 
-.circle_mobile {
+export const CircleMobile = styled.div`
   display: none;
-}
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    & .step {
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+      position: relative;
+    }
+    & .icon {
+      position: relative;
+    }
+  }
+`;
 
-.step {
+export const Step = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -34,11 +64,27 @@
   border-radius: 50%;
   background-color: var(--green-light);
   border: 2px solid white;
-}
 
-.bottom {
+  &:nth-of-type(1) {
+    top: -90px;
+  }
+
+  &:nth-of-type(2) {
+    right: -90px;
+  }
+
+  &:nth-of-type(3) {
+    left: -90px;
+  }
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+`;
+
+export const Bottom = styled.div`
   position: absolute;
-  bottom: -90;
+  bottom: -90px;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -49,9 +95,9 @@
   border-radius: 50%;
   background-color: var(--green-light);
   border: 2px solid white;
-}
+`;
 
-.center {
+export const Center = styled.div`
   background-color: var(--green-light);
   box-shadow: 5px 5px 5px rgba(177, 177, 177, 0.3);
   width: 150px;
@@ -61,21 +107,9 @@
   justify-content: center;
   align-items: center;
   border: 2px solid white;
-}
+`;
 
-.step:nth-of-type(1) {
-  top: -90;
-}
-
-.step:nth-of-type(2) {
-  right: -90;
-}
-
-.step:nth-of-type(3) {
-  left: -90;
-}
-
-.icon {
+export const Icon = styled.div`
   background-color: white;
   box-shadow: 5px 5px 5px rgba(177, 177, 177, 0.3);
   width: 160px;
@@ -96,36 +130,4 @@
   & > span {
     font-size: 16px;
   }
-}
-
-@media screen and (max-width: 800px) {
-  .circle {
-    display: none;
-  }
-  .step_container {
-    display: flex;
-    width: 100%;
-    padding: 30px;
-    position: relative;
-    background-color: var(--green);
-    border-radius: 30px;
-    border: 2px dotted grey;
-  }
-
-  .circle_mobile {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 20px;
-    & .step {
-      bottom: 0;
-      right: 0;
-      left: 0;
-      top: 0;
-      position: relative;
-    }
-    & .icon {
-      position: relative;
-    }
-  }
-}
+`;
