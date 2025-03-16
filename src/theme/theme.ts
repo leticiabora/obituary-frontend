@@ -12,4 +12,7 @@ export const theme = {
     }
   },
   background: '#fbfef9',
+  container: {
+    paddingX: '30px',
+  }
 };

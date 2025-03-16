@@ -1,4 +1,5 @@
 'use client';
+import { theme } from '@/theme/theme';
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
@@ -35,6 +36,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 40px;
   @media (max-width: 800px) {
-  padding: 20px 40px;
+  padding: 20px ${theme.container.paddingX};
 }
   `

@@ -9,13 +9,12 @@ export const Container = styled.nav`
   width: 100%;
   justify-content: center;
   border-top: 1px solid ${theme.colors.green.light};
-  padding-top: 20px;
   position: fixed;
   background-color: ${theme.background};
   bottom: 0;
   left: 0;
   z-index: 10;
-  padding: 10px 80px;
+  padding: 10px ${theme.container.paddingX};
     @media (min-width: 800px) {
       display: none;
     }
