@@ -1,12 +1,11 @@
 'use client';
 
-import Form from 'next/form';
 import { useActionState } from 'react';
 import { MemorySchemaErrorType } from '@/app/lib/definitions';
 import { createMemory } from '../actions/actions';
-import styles from '@/app/page.module.css';
 import { useRouter } from 'next/navigation';
 import { MemoryData } from '@/types/memory';
+import { Container, FormContainer, FormLabel } from '../Memorial.styles';
 
 const initialState: MemorySchemaErrorType = {
   errors: {},
@@ -32,35 +31,35 @@ const Memory = () => {
   >(addNewMemory, initialState);
 
   return (
-    <div className={styles.form_container}>
+    <Container>
       {state?.message && <p>{state?.message}</p>}
-      <Form className={styles.form_container} action={action}>
-        <div>
+      <FormContainer action={action}>
+        <FormLabel>
           <label htmlFor="title">
             Title
             <input type="text" name="title" />
           </label>
           {state?.errors?.title && <p className={styles.error}>{state.errors.title}</p>}
-        </div>
-        <div>
+        </FormLabel>
+        <FormLabel>
           <label htmlFor="image">
             Picture
             <input type="file" name="image" accept="image/*" />
           </label>
           {state?.errors?.image && <p className={styles.error}>{state.errors.image}</p>}
-        </div>
-        <div>
+        </FormLabel>
+        <FormLabel>
           <label htmlFor="description">
             Description
             <textarea rows={10} name="description" />
           </label>
           {state?.errors?.description && <p className={styles.error}>{state.errors.description}</p>}
-        </div>
+        </FormLabel>
         <button disabled={pending} type="submit">
           Create a memory
         </button>
-      </Form>
-    </div>
+      </FormContainer>
+    </Container>
   );
 };
 export default Memory;

@@ -1,5 +1,6 @@
 'use client';
 
+import Form from 'next/form';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -10,6 +11,21 @@ export const Container = styled.div`
   gap: 20px;
   flex-wrap: wrap;
 `;
+
+export const FormContainer = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`
+
+export const FormLabel = styled.div`
+  display: flex;
+  flex-direction: column;
+  & > label {
+    display: flex;
+    flex-direction: column;
+  }
+` 
 
 export const Memory = styled.div`
   display: flex;
