@@ -7,6 +7,7 @@ import StyledComponentsRegistry from './lib/registry';
 import { ThemeProviderWrapper } from '@/theme/ThemeProvider';
 import { DemoBanner } from './MainPage.styles';
 import { NavbarMobile } from '@/components/Navbar';
+import { Container, Wrapper } from './globals.styles';
 
 const quicksand = Quicksand({
   variable: '--font-quicksand',
@@ -31,13 +32,13 @@ export default async function RootLayout({
       <StyledComponentsRegistry>
         <ThemeProviderWrapper>
         <DemoBanner>Demo - WIP</DemoBanner>
-        <div className='container'>
-          <div className='wrapper'>
+        <Container>
+          <Wrapper>
             <Navbar session={session} />
             {children}
             <NavbarMobile session={session} />
-          </div>
-        </div>
+          </Wrapper>
+        </Container>
         </ThemeProviderWrapper>
       </StyledComponentsRegistry>
       </body>
