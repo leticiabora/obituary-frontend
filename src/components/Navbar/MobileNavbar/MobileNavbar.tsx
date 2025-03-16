@@ -7,6 +7,7 @@ import { logout } from '@/app/actions/auth';
 import { useRouter } from 'next/navigation';
 import { Container, Item, List } from './MobileNavbar.style';
 import { Button } from '@/components/Button';
+import Image from 'next/image';
 
 type NavbarProps = {
   session: JWTPayload | null;
@@ -34,6 +35,9 @@ const Navbar = ({ session }: NavbarProps) => {
           <Item>
             <Link href="/memorial"><LeafIcon width={30} height={30} /></Link>
           </Item>
+          <Link href="/">
+            <Image src="/logo-transparent.png" width={30} height={30} alt="About my fellow logo" />
+          </Link>
           <Item>
             <Link href="/memorial/create"><CreateIcon width={30} height={30} /></Link>
           </Item>

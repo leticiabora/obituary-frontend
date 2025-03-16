@@ -32,9 +32,11 @@ export default async function RootLayout({
         <ThemeProviderWrapper>
         <DemoBanner>Demo - WIP</DemoBanner>
         <div className='container'>
-          <Navbar session={session} />
-          {children}
-          <NavbarMobile session={session} />
+          <div className='wrapper'>
+            <Navbar session={session} />
+            {children}
+          </div>
+            <NavbarMobile session={session} />
         </div>
         </ThemeProviderWrapper>
       </StyledComponentsRegistry>

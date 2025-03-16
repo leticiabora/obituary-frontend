@@ -1,11 +1,15 @@
 'use client';
 
+import { theme } from '@/theme/theme';
 import styled from 'styled-components';
 
 export const Container = styled.nav`
   display: flex;
   align-items: center;
+  width: 100%;
   justify-content: center;
+  border-top: 1px solid ${theme.colors.green.light};
+  padding-top: 20px;
     @media (min-width: 800px) {
       display: none;
     }
