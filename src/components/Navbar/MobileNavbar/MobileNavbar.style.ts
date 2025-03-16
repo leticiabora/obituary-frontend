@@ -10,6 +10,11 @@ export const Container = styled.nav`
   justify-content: center;
   border-top: 1px solid ${theme.colors.green.light};
   padding-top: 20px;
+  position: fixed;
+  background-color: ${theme.background};
+  bottom: 0;
+  left: 0;
+  padding: 10px 80px;
     @media (min-width: 800px) {
       display: none;
     }

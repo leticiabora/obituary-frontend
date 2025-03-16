@@ -41,14 +41,14 @@ export const TitleContainer = styled.div`
   width: 100%;
   gap: 40px;
   & > h3 {
-    font-size: 30px;
+  font-size: clamp(1rem, 4vw, 2rem);
   }
 `;
 
 export const Title = styled.h1`
   display: flex;
-  gap: 10;
-  font-size: 80px;
+  gap: 10px;
+  font-size: clamp(2.5rem, 5vw, 6rem);
   align-items: center;
   justify-content: center;
 `;

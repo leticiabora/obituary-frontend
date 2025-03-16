@@ -11,4 +11,5 @@ export const theme = {
       secondary: '#2c3e2e',
     }
   },
+  background: '#fbfef9',
 };

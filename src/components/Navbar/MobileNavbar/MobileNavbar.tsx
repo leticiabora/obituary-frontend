@@ -13,7 +13,7 @@ type NavbarProps = {
   session: JWTPayload | null;
 };
 
-const Navbar = ({ session }: NavbarProps) => {
+const NavbarMobile = ({ session }: NavbarProps) => {
   const router = useRouter();
 
   const logoutUser = () => {
@@ -36,7 +36,7 @@ const Navbar = ({ session }: NavbarProps) => {
             <Link href="/memorial"><LeafIcon width={30} height={30} /></Link>
           </Item>
           <Link href="/">
-            <Image src="/logo-transparent.png" width={30} height={30} alt="About my fellow logo" />
+            <Image src="/logo-transparent.png" width={40} height={40} alt="About my fellow logo" />
           </Link>
           <Item>
             <Link href="/memorial/create"><CreateIcon width={30} height={30} /></Link>
@@ -57,4 +57,4 @@ const Navbar = ({ session }: NavbarProps) => {
   );
 };
 
-export default Navbar;
+export default NavbarMobile;

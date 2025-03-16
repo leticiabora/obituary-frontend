@@ -35,8 +35,8 @@ export default async function RootLayout({
           <div className='wrapper'>
             <Navbar session={session} />
             {children}
-          </div>
             <NavbarMobile session={session} />
+          </div>
         </div>
         </ThemeProviderWrapper>
       </StyledComponentsRegistry>
