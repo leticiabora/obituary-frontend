@@ -9,7 +9,7 @@ interface ButtonProps {
 
 const Button = ({ children, variant, onClick }: ButtonProps) => {
   return (
-    <ButtonContainer variant={variant} onClick={onClick}>
+    <ButtonContainer $variant={variant} onClick={onClick}>
       {children}
     </ButtonContainer>
   );

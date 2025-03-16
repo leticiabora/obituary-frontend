@@ -14,7 +14,7 @@ interface LinkProps {
 const CustomLink = ({ children, href, variant, ...props }: LinkProps) => {
   return (
     <Link  href={href} {...props}>
-      <LinkContainer variant={variant}>
+      <LinkContainer $variant={variant}>
         {children}
       </LinkContainer>
     </Link>

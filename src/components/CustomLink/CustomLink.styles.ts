@@ -38,13 +38,12 @@ const linkVariants = (theme: DefaultTheme) => {
        background-color: ${theme.colors.green.light};
     `,
   } as const);
-
 }
 
 interface LinkProps {
-  variant?: keyof ReturnType<typeof linkVariants>;
+  $variant?: keyof ReturnType<typeof linkVariants>;
 }
 
 export const LinkContainer = styled.div<LinkProps>`
-  ${({ theme, variant = 'primary' }) => linkVariants(theme)[variant]}
+  ${({ theme, $variant = 'primary' }) => linkVariants(theme)[$variant]}
 `;

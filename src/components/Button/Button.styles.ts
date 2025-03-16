@@ -35,7 +35,7 @@ const buttonVariants = (theme: DefaultTheme) =>
   } as const);
 
 interface ButtonProps {
-  variant?: keyof ReturnType<typeof buttonVariants>;
+  $variant?: keyof ReturnType<typeof buttonVariants>;
 }
 
 export const ButtonContainer = styled.button<ButtonProps>`
@@ -47,5 +47,5 @@ export const ButtonContainer = styled.button<ButtonProps>`
   cursor: pointer;
   transition: background 0.2s ease-in-out;
 
-  ${({ theme, variant = 'primary' }) => buttonVariants(theme)[variant]}
+  ${({ theme, $variant = 'primary' }) => buttonVariants(theme)[$variant]}
 `;
