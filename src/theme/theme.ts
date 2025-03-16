@@ -4,7 +4,7 @@ export const theme = {
     green: {
       default: '#9ab0a4',
       light: '#D2DCCC',
-      dark: '#2c3e2e'
+      dark: '#2c3e2e',
     },
     text: {
       primary: '#000000',

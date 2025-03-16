@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import Steps from '@/components/pages/home/Steps/Steps';
 import { ActionContainer, Actions, ButtonContainer, Container, Main, Subtitle, Title, TitleContainer } from './MainPage.styles';
+import CustomLink from '@/components/CustomLink/CustomLink';
 
 export default function Home() {
   return (
@@ -28,14 +28,12 @@ export default function Home() {
                 love, remembrance, and togetherness across generations.
               </p>
               <ButtonContainer>
-                <Link href="/auth/login">
-                  <button>Login</button>
-                </Link>
-                <Link href="/memorial">
-                  <button>
-                    Check memorial
-                  </button>
-                </Link>
+                <CustomLink variant="button" href="/auth/login">
+                  Login
+                </CustomLink>
+                <CustomLink variant="outlined" href="/memorial">
+                  Check memorial!
+                </CustomLink>
               </ButtonContainer>
             </Actions>
           <Actions>
