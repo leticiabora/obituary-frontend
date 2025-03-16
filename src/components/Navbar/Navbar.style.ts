@@ -29,7 +29,4 @@ export const Links = styled.div`
 
 export const Item = styled.li`
   border-bottom: 1px solid transparent;
-  &:hover {
-    border-bottom: 1px solid var(--green);
-  }
 `;

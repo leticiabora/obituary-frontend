@@ -3,7 +3,7 @@ import { LinkContainer } from './CustomLink.styles';
 import Link from 'next/link';
 
 interface LinkProps {
-  variant?: 'primary' | 'button' | 'outlined';
+  variant?: 'primary' | 'button' | 'outlined' | 'none';
   children: ReactNode | string;
   href: string;
   target?: string;

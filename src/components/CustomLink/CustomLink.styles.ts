@@ -13,7 +13,7 @@ const buttonStyles = css`
 `;
 
 const linkVariants = (theme: DefaultTheme) => {
-  return ({
+  return {
     primary: css`
       color: ${theme.colors.text.primary};
       border-bottom: 1px solid transparent;
@@ -35,10 +35,17 @@ const linkVariants = (theme: DefaultTheme) => {
       background-color: white;
       border: 1px solid ${theme.colors.green.dark};
       &:hover {
-       background-color: ${theme.colors.green.light};
+        background-color: ${theme.colors.green.light};
+      }
     `,
-  } as const);
-}
+    none: css`
+      ${buttonStyles};
+      &:hover {
+        border-bottom: none
+      }
+    `,
+  } as const;
+};
 
 interface LinkProps {
   $variant?: keyof ReturnType<typeof linkVariants>;

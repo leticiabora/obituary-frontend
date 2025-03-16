@@ -8,6 +8,7 @@ import { logout } from '@/app/actions/auth';
 import { useRouter } from 'next/navigation';
 import { Button } from '../Button';
 import { Container, Item, Links, List } from './Navbar.style';
+import CustomLink from '../CustomLink/CustomLink';
 
 type NavbarProps = {
   session: JWTPayload | null;
@@ -21,39 +22,39 @@ const Navbar = ({ session }: NavbarProps) => {
       logout();
 
       router.push('/');
-    } catch (error){
+    } catch (error) {
       return error;
     }
-  }
-   
+  };
+
   return (
     <Container>
       <List>
         <Item>
-          <Link href="/">
+          <CustomLink variant="none" href="/">
             <Image src="/logo-transparent.png" width={80} height={80} alt="About my fellow logo" />
-          </Link>
+          </CustomLink>
         </Item>
         <Links>
           <Item>
-            <Link href="/about">About</Link>
+            <CustomLink href="/about">About</CustomLink>
           </Item>
           <Item>
-            <Link href="/memorial">Memorial</Link>
+            <CustomLink href="/memorial">Memorial</CustomLink>
           </Item>
           <Item>
-            <Link href="/memorial/create">Create a Memory</Link>
+            <CustomLink href="/memorial/create">Create a Memory</CustomLink>
           </Item>
         </Links>
         <li>
           {session ? (
-            <Button variant='none' onClick={logoutUser}>
+            <Button variant="none" onClick={logoutUser}>
               <LogoutIcon width={20} height={20} />
             </Button>
           ) : (
-            <Link href="/login">
+            <CustomLink variant="none" href="/login">
               <UserIcon width={20} height={20} />
-            </Link>
+            </CustomLink>
           )}
         </li>
       </List>
