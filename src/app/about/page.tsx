@@ -1,10 +1,10 @@
-import { Container } from '../MainPage.styles';
+import { Container, Text } from './About.styles';
 
 const AboutPage = () => {
   return (
     <Container>
       <h2>About us</h2>
-      <div>
+      <Text>
         <p>Hey!</p>
         <p>
           I lost my brother on 28th of April, 2023 when he was 30 years old. He went to the beach
@@ -89,7 +89,7 @@ const AboutPage = () => {
             'If you\'re going through grief today, you are not alone. Sending you a virtual hug, and I can assure you—life deserves to be lived. And I bet your loved one agrees with me.'
           }
         </p>
-      </div>
+      </Text>
     </Container>
   );
 };

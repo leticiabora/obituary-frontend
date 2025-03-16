@@ -14,6 +14,7 @@ export const Container = styled.nav`
   background-color: ${theme.background};
   bottom: 0;
   left: 0;
+  z-index: 10;
   padding: 10px 80px;
     @media (min-width: 800px) {
       display: none;
