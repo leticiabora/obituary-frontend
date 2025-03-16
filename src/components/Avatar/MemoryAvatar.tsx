@@ -9,7 +9,7 @@ interface Memory {
 
 const MemoryAvatar = ({ memory, children }: Memory) => {
   return (
-    <LinkContainer href={`/memory/${memory.id}`}>
+    <LinkContainer href={`/memorial/${memory.id}`}>
       <Container key={memory.id}>
         {memory?.image && memory.image.length && (
           <ImageContainer src={memory.image} width={200} height={200} alt={memory.title} />

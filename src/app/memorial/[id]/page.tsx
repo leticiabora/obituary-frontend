@@ -22,9 +22,10 @@ const MemoryPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <div className={styles.container}>
       <h1>{memory.title}</h1>
-      <MemoryAvatar memory={memory} />
+      <MemoryAvatar memory={memory}>
       <p><span className={styles.subitem}>Created by:</span> {memory.author.name}</p>
       <p><span className={styles.subitem}>Created at:</span> {dayjs(new Date(memory.createdAt).toString()).format('MMM 12, YYYY')}</p>
+      </MemoryAvatar>
       <p>{memory.description}</p>
 
       <hr></hr>

@@ -5,7 +5,7 @@ import { cookies } from 'next/headers';
 import { decrypt } from './app/lib/session';
 
 const loginRoutes = ['/auth/login', '/auth/signup']
-const publicRoutes = [...loginRoutes, '/', '/memorial', '/about', '/memorial/:id'];
+const publicRoutes = [...loginRoutes, '/', '/memorial', '/about'];
 
 export default async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;

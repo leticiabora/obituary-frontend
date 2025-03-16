@@ -39,21 +39,21 @@ const Memory = () => {
             Title
             <input type="text" name="title" />
           </label>
-          {state?.errors?.title && <p className={styles.error}>{state.errors.title}</p>}
+          {state?.errors?.title && <p>{state.errors.title}</p>}
         </FormLabel>
         <FormLabel>
           <label htmlFor="image">
             Picture
             <input type="file" name="image" accept="image/*" />
           </label>
-          {state?.errors?.image && <p className={styles.error}>{state.errors.image}</p>}
+          {state?.errors?.image && <p>{state.errors.image}</p>}
         </FormLabel>
         <FormLabel>
           <label htmlFor="description">
             Description
             <textarea rows={10} name="description" />
           </label>
-          {state?.errors?.description && <p className={styles.error}>{state.errors.description}</p>}
+          {state?.errors?.description && <p>{state.errors.description}</p>}
         </FormLabel>
         <button disabled={pending} type="submit">
           Create a memory

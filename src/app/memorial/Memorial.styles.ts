@@ -15,15 +15,20 @@ export const Container = styled.div`
 export const FormContainer = styled(Form)`
   display: flex;
   flex-direction: column;
+  width: 80%;
   gap: 15px;
 `
 
 export const FormLabel = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   & > label {
     display: flex;
     flex-direction: column;
+  }
+  & > p {
+    color: red;
   }
 ` 
 
