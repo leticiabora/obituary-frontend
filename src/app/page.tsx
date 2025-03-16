@@ -32,7 +32,7 @@ export default function Home() {
                   Login
                 </CustomLink>
                 <CustomLink variant="outlined" href="/memorial">
-                  Check memorial!
+                  Check memorial
                 </CustomLink>
               </ButtonContainer>
             </Actions>

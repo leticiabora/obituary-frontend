@@ -1,6 +1,19 @@
 'use client';
 import styled from 'styled-components';
 
+export const DemoBanner = styled.div`
+  position: absolute;
+  top: 10px;
+  left: -40px;
+  transform: rotate(-30deg);
+  background-color: red;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+`
+
 export const Container = styled.div`
   display: grid;
   grid-template-rows: 20px 1fr 20px;
@@ -47,6 +60,11 @@ export const ActionContainer = styled.div`
   gap: 100px;
   font-size: 20px;
   height: 100%;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
 `;
 export const Actions = styled.div`
   display: flex;
