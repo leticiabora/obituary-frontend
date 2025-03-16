@@ -1,10 +1,11 @@
 'use client';
 
 import Form from 'next/form';
-import styles from '../styles.module.css';
 import { createAccount } from '@/app/actions/auth';
 import { useActionState } from 'react';
 import { AuthSchemaErrorType } from '@/app/lib/definitions';
+import { Container, Error } from '../Auth.styles';
+import CustomLink from '@/components/CustomLink/CustomLink';
 
 const initialState: AuthSchemaErrorType = {
   errors: {},
@@ -14,21 +15,21 @@ const Signup = () => {
   const [state, action, pending] = useActionState<AuthSchemaErrorType, FormData>(createAccount, initialState)
 
   return (
-    <div>
-      <Form className={styles.container} action={action}>
-        {state?.message && <p className={styles.error}>{state?.message}</p>}
+    <Container>
+      <Form action={action}>
+        {state?.message && <Error>{state?.message}</Error>}
       <div>
         <label htmlFor="name">
           Name
           <input type="text" name="name" />
-          {state?.errors?.name && <p className={styles.error}>{state.errors.name}</p>}
+          {state?.errors?.name && <Error>{state.errors.name}</Error>}
         </label>
         </div>
         <div>
         <label htmlFor="email">
           Email
           <input type="email" name="email" />
-          {state?.errors?.email && <p className={styles.error}>{state.errors.email}</p>}
+          {state?.errors?.email && <Error>{state.errors.email}</Error>}
         </label>
         </div>
         <div>
@@ -36,18 +37,19 @@ const Signup = () => {
           Password
           <input type="password" name="password" />
         </label>
-        {state?.errors?.password && <p className={styles.error}>{state.errors.password}</p>}
+        {state?.errors?.password && <Error>{state.errors.password}</Error>}
         </div>
         <div>
         <label htmlFor="confirmPassword">
           Confirm Password
           <input type="password" name="confirmPassword" />
         </label>
-        {state?.errors?.confirmPassword && <p className={styles.error}>{state.errors.confirmPassword}</p>}
+        {state?.errors?.confirmPassword && <Error>{state.errors.confirmPassword}</Error>}
         </div>
         <button disabled={pending} type="submit">Signup</button>
       </Form>
-    </div>
+      <p>Already have an account? <CustomLink href="/auth/login">Log in</CustomLink></p>
+    </Container>
   );
 
 };

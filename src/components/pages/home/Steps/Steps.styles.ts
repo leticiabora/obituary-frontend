@@ -58,7 +58,7 @@ export const Step = styled.div`
 
   &:nth-of-type(1) {
     top: -90px;
-        @media (max-width: 800px) {
+    @media (max-width: 800px) {
       top: 0;
     }
   }

@@ -1,25 +1,26 @@
 'use client';
 
 import { loginUser } from '@/app/actions/auth';
-import styles from '../styles.module.css';
 import Form from 'next/form';
 import { useActionState } from 'react';
 import { AuthSchemaErrorType } from '@/app/lib/definitions';
+import CustomLink from '@/components/CustomLink/CustomLink';
+import { Container, Error } from '../Auth.styles';
 
 const initialState: AuthSchemaErrorType = {
   errors: {},
 };
 
 const Login = () => {
-  const [state, action, pending] = useActionState<
-    AuthSchemaErrorType,
-    FormData
-  >(loginUser, initialState);
+  const [state, action, pending] = useActionState<AuthSchemaErrorType, FormData>(
+    loginUser,
+    initialState,
+  );
 
   return (
-    <div className={styles.container}>
-      {state?.message && <p className={styles.error}>{state?.message}</p>}
-      <Form className={styles.container} action={action}>
+    <Container>
+      {state?.message && <Error>{state?.message}</Error>}
+      <Form action={action}>
         <div>
           <label htmlFor="email">
             Email
@@ -36,7 +37,10 @@ const Login = () => {
           Login
         </button>
       </Form>
-    </div>
+      <p>
+        {'You don\'t have an account?'} <CustomLink href="/auth/signup">Click here</CustomLink>
+      </p>
+    </Container>
   );
 };
 
