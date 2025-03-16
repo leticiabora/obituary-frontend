@@ -4,7 +4,7 @@ import { Icon } from './types';
 import { theme } from '@/theme/theme';
 
 const SvgComponent: React.FC<Icon> = (props) => {
-  const { width, height, color = theme.colors.green.dark } = props;
+  const { width, height, color = theme.colors.green.default } = props;
   return (
     <svg
       width={width}
