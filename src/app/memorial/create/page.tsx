@@ -32,6 +32,7 @@ const Memory = () => {
 
   return (
     <Container>
+      <h1>Create a memory</h1>
       {state?.message && <p>{state?.message}</p>}
       <FormContainer action={action}>
         <FormLabel>

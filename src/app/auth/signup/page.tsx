@@ -16,6 +16,7 @@ const Signup = () => {
 
   return (
     <Container>
+      <h1>Create an account</h1>
       <Form action={action}>
         {state?.message && <Error>{state?.message}</Error>}
       <div>
