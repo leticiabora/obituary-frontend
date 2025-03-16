@@ -4,7 +4,7 @@ import Form from 'next/form';
 import { createAccount } from '@/app/actions/auth';
 import { useActionState } from 'react';
 import { AuthSchemaErrorType } from '@/app/lib/definitions';
-import { Container, Error } from '../Auth.styles';
+import { Container, Error, LoginLink } from '../Auth.styles';
 import CustomLink from '@/components/CustomLink/CustomLink';
 
 const initialState: AuthSchemaErrorType = {
@@ -49,7 +49,7 @@ const Signup = () => {
         </div>
         <button disabled={pending} type="submit">Signup</button>
       </Form>
-      <p>Already have an account? <CustomLink href="/auth/login">Log in</CustomLink></p>
+      <LoginLink>Already have an account? <CustomLink href="/auth/login">Log in</CustomLink></LoginLink>
     </Container>
   );
 

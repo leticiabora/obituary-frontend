@@ -10,10 +10,6 @@ export const Container = styled.div`
   align-self: center;
   width: 100%;
   gap: 20px;
-  & > p {
-    display: flex;
-    gap: 6px;
-  }
   & > form {
     width: 100%;
     display: flex;
@@ -29,6 +25,12 @@ export const Container = styled.div`
       width: 100%;
     }
   }
+`;
+
+export const LoginLink = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 6px;
 `;
 
 export const Error = styled.p`

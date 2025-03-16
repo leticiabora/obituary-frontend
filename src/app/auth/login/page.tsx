@@ -5,7 +5,7 @@ import Form from 'next/form';
 import { useActionState } from 'react';
 import { AuthSchemaErrorType } from '@/app/lib/definitions';
 import CustomLink from '@/components/CustomLink/CustomLink';
-import { Container, Error } from '../Auth.styles';
+import { Container, Error, LoginLink } from '../Auth.styles';
 
 const initialState: AuthSchemaErrorType = {
   errors: {},
@@ -38,9 +38,9 @@ const Login = () => {
           Login
         </button>
       </Form>
-      <p>
+      <LoginLink>
         {'You don\'t have an account?'} <CustomLink href="/auth/signup">Click here</CustomLink>
-      </p>
+      </LoginLink>
     </Container>
   );
 };
