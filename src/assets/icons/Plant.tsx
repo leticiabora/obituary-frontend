@@ -10,7 +10,7 @@ const SvgComponent: React.FC<Icon> = (props) => (
   xmlnsXlink="http://www.w3.org/1999/xlink"
   viewBox="0 0 512 512"
   xmlSpace="preserve"
-  fill="#D2DCCC"
+  fill={props.color}
   {...props}
 >
   <style type="text/css"></style>

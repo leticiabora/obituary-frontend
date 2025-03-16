@@ -6,6 +6,7 @@ import { getSession } from './actions/auth';
 import StyledComponentsRegistry from './lib/registry';
 import { ThemeProviderWrapper } from '@/theme/ThemeProvider';
 import { DemoBanner } from './MainPage.styles';
+import { NavbarMobile } from '@/components/Navbar';
 
 const quicksand = Quicksand({
   variable: '--font-quicksand',
@@ -33,6 +34,7 @@ export default async function RootLayout({
         <div className='container'>
           <Navbar session={session} />
           {children}
+          <NavbarMobile session={session} />
         </div>
         </ThemeProviderWrapper>
       </StyledComponentsRegistry>

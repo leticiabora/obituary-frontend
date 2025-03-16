@@ -1,13 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { LogoutIcon, UserIcon } from '@/assets/icons';
+import { CreateIcon, InfoIcon, LeafIcon, LogoutIcon, UserIcon } from '@/assets/icons';
 import { JWTPayload } from 'jose';
-import Image from 'next/image';
 import { logout } from '@/app/actions/auth';
 import { useRouter } from 'next/navigation';
-import { Button } from '../Button';
-import { Container, Item, Links, List } from './Navbar.style';
+import { Container, Item, List } from './MobileNavbar.style';
+import { Button } from '@/components/Button';
 
 type NavbarProps = {
   session: JWTPayload | null;
@@ -29,22 +28,15 @@ const Navbar = ({ session }: NavbarProps) => {
   return (
     <Container>
       <List>
-        <Item>
-          <Link href="/">
-            <Image src="/logo-transparent.png" width={80} height={80} alt="About my fellow logo" />
-          </Link>
-        </Item>
-        <Links>
           <Item>
-            <Link href="/about">About</Link>
+            <Link href="/about"><InfoIcon width={30} height={30} /></Link>
           </Item>
           <Item>
-            <Link href="/memorial">Memorial</Link>
+            <Link href="/memorial"><LeafIcon width={30} height={30} /></Link>
           </Item>
           <Item>
-            <Link href="/memorial/create">Create a Memory</Link>
+            <Link href="/memorial/create"><CreateIcon width={30} height={30} /></Link>
           </Item>
-        </Links>
         <li>
           {session ? (
             <Button variant='none' onClick={logoutUser}>
