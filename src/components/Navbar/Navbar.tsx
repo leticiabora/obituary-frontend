@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { LogoutIcon, UserIcon } from '@/assets/icons';
 import { JWTPayload } from 'jose';
 import Image from 'next/image';

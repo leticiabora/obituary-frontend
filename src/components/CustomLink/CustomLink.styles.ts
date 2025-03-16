@@ -40,6 +40,7 @@ const linkVariants = (theme: DefaultTheme) => {
     `,
     none: css`
       ${buttonStyles};
+      padding: 0;
       &:hover {
         border-bottom: none
       }

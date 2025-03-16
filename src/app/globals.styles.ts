@@ -25,17 +25,18 @@ export const Container = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: column;
-`
+  padding: 20px 15vw;
+  @media (max-width: 800px) {
+    padding: 20px ${theme.container.paddingX};
+    margin: 0;
+  }
+`;
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 40px 80px;
   margin-bottom: 60px;
   flex-direction: column;
   gap: 40px;
-  @media (max-width: 800px) {
-  padding: 20px ${theme.container.paddingX};
-}
-  `
+`;

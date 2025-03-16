@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const DemoBanner = styled.div`
   position: absolute;
   top: 10px;
-  left: -40px;
+  left: -50px;
   transform: rotate(-30deg);
   background-color: red;
   padding: 10px;
@@ -12,6 +12,7 @@ export const DemoBanner = styled.div`
   text-align: center;
   font-weight: 600;
   color: white;
+
 `
 
 export const Container = styled.div`
@@ -55,6 +56,7 @@ export const Title = styled.h1`
 
 export const ActionContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding-top: 10px;
   gap: 100px;

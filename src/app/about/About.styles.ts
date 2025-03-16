@@ -7,11 +7,11 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 15px;
   align-items: center;
+  
 `;
 
 export const Text = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
-
 `;

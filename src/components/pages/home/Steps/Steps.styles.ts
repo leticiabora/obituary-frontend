@@ -7,6 +7,7 @@ export const Container = styled.div`
   width: 100%;
   padding-top: 50px;
   position: relative;
+  justify-content: center;
   @media (max-width: 800px) {
     display: flex;
     width: 100%;
@@ -40,16 +41,6 @@ export const CircleMobile = styled.div`
     flex-direction: column;
     width: 100%;
     gap: 20px;
-    & .step {
-      bottom: 0;
-      right: 0;
-      left: 0;
-      top: 0;
-      position: relative;
-    }
-    & .icon {
-      position: relative;
-    }
   }
 `;
 
@@ -67,6 +58,9 @@ export const Step = styled.div`
 
   &:nth-of-type(1) {
     top: -90px;
+        @media (max-width: 800px) {
+      top: 0;
+    }
   }
 
   &:nth-of-type(2) {
@@ -75,10 +69,17 @@ export const Step = styled.div`
 
   &:nth-of-type(3) {
     left: -90px;
+    @media (max-width: 800px) {
+      left: 0;
+    }
   }
 
   @media (max-width: 800px) {
-    display: none;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    position: relative;
   }
 `;
 
@@ -129,5 +130,8 @@ export const Icon = styled.div`
   }
   & > span {
     font-size: 16px;
+  }
+  @media (max-width: 800px) {
+    position: relative;
   }
 `;
