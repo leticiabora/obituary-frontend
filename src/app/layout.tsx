@@ -7,7 +7,7 @@ import StyledComponentsRegistry from './lib/registry';
 import { ThemeProviderWrapper } from '@/theme/ThemeProvider';
 import { DemoBanner } from './MainPage.styles';
 import { NavbarMobile } from '@/components/Navbar';
-import { Container, Wrapper } from './globals.styles';
+import { Container, GlobalStyles, Wrapper } from './globals.styles';
 
 const quicksand = Quicksand({
   variable: '--font-quicksand',
@@ -27,21 +27,24 @@ export default async function RootLayout({
   const session = await getSession();
 
   return (
-    <html lang="en">
-      <body className={`${quicksand.variable}`}>
-      <StyledComponentsRegistry>
-        <ThemeProviderWrapper>
-        <DemoBanner>Demo - WIP</DemoBanner>
-        <Container>
-          <Wrapper>
-            <Navbar session={session} />
-            {children}
-            <NavbarMobile session={session} />
-          </Wrapper>
-        </Container>
-        </ThemeProviderWrapper>
-      </StyledComponentsRegistry>
-      </body>
-    </html>
+    <>
+    <GlobalStyles />
+      <html lang="en">
+        <body className={`${quicksand.variable}`}>
+        <StyledComponentsRegistry>
+          <ThemeProviderWrapper>
+          <DemoBanner>Demo - WIP</DemoBanner>
+          <Container>
+            <Wrapper>
+              <Navbar session={session} />
+              {children}
+              <NavbarMobile session={session} />
+            </Wrapper>
+          </Container>
+          </ThemeProviderWrapper>
+        </StyledComponentsRegistry>
+        </body>
+      </html>
+    </>
   );
 }
