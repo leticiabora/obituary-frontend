@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { ButtonContainer } from './Button.styles';
 
 interface ButtonProps {
-  variant?: 'primary' | 'secondary' | 'link' | 'none';
+  variant?: 'primary' | 'secondary' | 'danger' | 'link' | 'none';
   children: ReactNode | string;
   onClick: () => void;
 }

@@ -27,6 +27,13 @@ const buttonVariants = (theme: DefaultTheme) =>
         text-decoration: underline;
       }
     `,
+    danger: css`
+      background-color: ${theme.colors.danger};
+      color: white;
+      &:hover {
+        background-color: rgba(${theme.colors.danger}, 0.6);
+      }
+    `,
     none: css`
       background-color: transparent;
       padding: 0;

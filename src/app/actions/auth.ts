@@ -12,10 +12,11 @@ import { JWTPayload } from 'jose';
 export async function getSession(): Promise<JWTPayload | null> {
   const session = (await cookies()).get('token')?.value;
 
+  
   if (!session) {
     return null;
   }
-
+  
   const decryptSession = await decrypt(session);
 
   return decryptSession;
