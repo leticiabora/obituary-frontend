@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 const AdminPage = async () => {
   const session = await getSession();
 
-  if (!session.isAdmin) {
+  if (!session || !session.isAdmin) {
     redirect('/');
   }
 
