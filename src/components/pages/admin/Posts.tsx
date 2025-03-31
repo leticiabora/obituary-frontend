@@ -1,8 +1,9 @@
 'use client';
 
 import { Button } from '@/components/Button';
+import { MemoriesData } from '@/types/memory';
 
-const Posts = ({ posts }) => {
+const Posts = ({ posts }: MemoriesData) => {
   return (
     <div>
       <ul>
