@@ -29,6 +29,7 @@ export interface Post {
   createdAt: string;
   updatedAt: string;
   comments: Comment[];
+  active: boolean;
 }
 
 export interface MemoryData {

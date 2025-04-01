@@ -25,3 +25,9 @@ export const getAdminMemories = async () => {
 
   return result;
 }
+
+export const deleteMemory = async (id: number) => {
+  const result = await api.get<unknown, MemoriesData>(`/admin/post/${id}`);
+
+  return result;
+}

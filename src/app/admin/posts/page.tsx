@@ -10,11 +10,9 @@ const AdminPage = async () => {
     redirect('/');
   }
 
-    const { posts } = await getAdminMemories();
+  const { posts } = await getAdminMemories();
 
-  return (
-    <Posts posts={posts} />
-  );
+  return <Posts posts={posts} />;
 };
 
 export default AdminPage;
